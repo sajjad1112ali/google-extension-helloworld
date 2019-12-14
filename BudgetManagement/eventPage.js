@@ -64,6 +64,4 @@ function addTotal(spendAmount)
                 chrome.notifications.create("limitReachedNotif", notifOption);
             }
         });
-        $("#total").text(newTotal);
-        $("#spendAmount").val("");
     });}
