@@ -30,4 +30,5 @@ function addTotal(spendAmount)
         });
         $("#total").text(newTotal);
         $("#spendAmount").val("");
-    });}
+    });
+}
