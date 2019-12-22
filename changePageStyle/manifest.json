@@ -11,10 +11,10 @@
     "content_scripts": [{
         "css": ["./style.css"],
         "js": ["./js/jquery.js","./js/content.js"],
-        "matches": ["https://developer.chrome.com/*"]
+        "matches": ["https://www.upwork.com/*"]
       }],
       "permissions": [
           "tabs",
-          "https://developer.chrome.com/*"
+          "https://www.upwork.com/*"
       ]
 }

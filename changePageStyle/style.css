@@ -1,14 +1,13 @@
-body {
-    background: url('https://media.giphy.com/media/3o7WTDJQVuYwhhuLhC/giphy.gif') !important;
-    background-repeat: no-repeat !important;
-    background-size: cover !important;
-  }
-h1{
-    background-color: blue !important;
-    color: blanchedalmond !important;
-}   
-.toplevel{
-    background: blue !important;
-    color: blanchedalmond !important;
-    padding: 5px;
-}   
+ .badge-verified span, .badge-unverified span,
+ .air-icon-verified:before,
+ {
+    color: grey !important;
+}
+.input-group.input-group-search .input-group-btn>.btn-primary{
+    background-color: grey !important;
+
+}
+
+input.form-control:hover, textarea.form-control:hover, .select2-search input:hover, input.form-control:focus, textarea.form-control:focus, .select2-search input:focus{
+    border-color: grey;
+}
