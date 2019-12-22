@@ -5,18 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Save Quotes</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/style.css">
+
     <script src="./js/jquery.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/popper.min.js"></script>
     <script src="./js/popup.js"></script>
     <script src="./js/common.js"></script>
 </head>
 <body>
     <div class="quotesContainer">
-        <h2>Recently added quotes</h2>
-        <ul id="quotes-list">
-        </ul>
-        <input type="submit" id="resetQuot" class="btn" value="Reset Quotes">
+        <h2>Your Quotes</h2>
 
+<!-- Nav pills -->
+<ul class="nav nav-pills">
+    <li class="nav-item">
+      <a class="nav-link active" data-toggle="pill" href="#allQuotes">Saved</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="likedTab" data-toggle="pill" href="#liked">Liked</a>
+    </li>
+  </ul>
+  
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div class="tab-pane container active" id="allQuotes">
+        <div class="quotes-container pt-4">
+            <ul id="quotes-list">
+            </ul>
+        </div>
+
+    </div>
+    <div class="tab-pane container fade" id="liked">
+        <div class="quotes-container pt-4">
+            <ul id="liked-quotes-list">
+            </ul>
+        </div>        
+    </div>
+  </div>
+
+        <input type="submit" id="resetQuot" class="btn" value="Reset Quotes">
     </div>
 </body>
 </html>

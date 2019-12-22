@@ -29,8 +29,30 @@ body{
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
     float: right;
 }
+.like{
+    color: #ffffff;
+    left: -20px;
+    top: 0;
+    position: absolute;
+}
 
-ul li{
+span.liked {
+    color: red;
+}
+.quotes-container ul li{
     font-size: 16px;
-    padding-bottom: 13px;
+    margin-bottom: 13px;
+    position: relative;
+    width: 420px;
+    list-style: none;
+}
+ul{
+    padding-left: 15px;
+}
+a, a:hover {
+    color: #ffffff;
+}
+.pointer{
+    cursor: pointer;
+
 }

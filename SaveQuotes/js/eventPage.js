@@ -12,8 +12,6 @@ chrome.runtime.onInstalled.addListener(function() {
 chrome.contextMenus.onClicked.addListener(function(clickData){
     if(clickData.menuItemId == "SaveQuote" && clickData.selectionText)
     {
-
-
         chrome.storage.sync.get('quotes', function(quotesObj) {
     
             var quotes = quotesObj.quotes;

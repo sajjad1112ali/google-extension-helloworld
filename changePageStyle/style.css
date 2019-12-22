@@ -1,0 +1,14 @@
+body {
+    background: url('https://media.giphy.com/media/3o7WTDJQVuYwhhuLhC/giphy.gif') !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+  }
+h1{
+    background-color: blue !important;
+    color: blanchedalmond !important;
+}   
+.toplevel{
+    background: blue !important;
+    color: blanchedalmond !important;
+    padding: 5px;
+}   
