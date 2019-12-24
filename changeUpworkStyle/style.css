@@ -1,10 +1,15 @@
  .badge-verified span, .badge-unverified span,
- .air-icon-verified:before
- {
+ .air-icon-verified:before {
     color: grey !important;
 }
+
+.nav-v2 .nav-right>li.active .nav-item /* Change Active nav color*/
+{
+   color: #afafaf !important;
+}
+
 .input-group.input-group-search .input-group-btn>.btn-primary,
-.nav-v2 .nav-dot /* Change the dot color*/
+.nav-v2 .nav-dot /* Change the dot color */
 
 {
     background-color: grey !important;
@@ -12,6 +17,7 @@
 }
 
 input.form-control:hover, textarea.form-control:hover, .select2-search input:hover, input.form-control:focus, textarea.form-control:focus, .select2-search input:focus
+
 {
     border-color: grey !important;
 }
@@ -22,6 +28,10 @@ input.form-control:hover, textarea.form-control:hover, .select2-search input:hov
     color: #656565 !important;
     font-size: 15px !important;
 
+}
+.blueberry-text,
+.opening-counts-value a{
+    border-color: black !important;
 }
 .nav-v2 .nav-bubble:before{
     border-left: 0px solid transparent !important;
