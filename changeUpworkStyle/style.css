@@ -8,13 +8,20 @@
    color: #afafaf !important;
 }
 
-.input-group.input-group-search .input-group-btn>.btn-primary,
 .nav-v2 .nav-dot /* Change the dot color */
+
+{
+    background-color: #f2f2f2 !important;
+
+}
+
+.input-group.input-group-search .input-group-btn>.btn-primary /* CHANGE search box right button*/
 
 {
     background-color: grey !important;
 
 }
+
 
 input.form-control:hover, textarea.form-control:hover, .select2-search input:hover, input.form-control:focus, textarea.form-control:focus, .select2-search input:focus
 
@@ -35,4 +42,10 @@ input.form-control:hover, textarea.form-control:hover, .select2-search input:hov
 }
 .nav-v2 .nav-bubble:before{
     border-left: 0px solid transparent !important;
+}
+
+.anchorCustomBtn{
+    position: fixed;
+    left: 20px; 
+    bottom: 0;
 }
