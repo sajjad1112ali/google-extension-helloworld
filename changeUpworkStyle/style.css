@@ -4,7 +4,6 @@
     color: grey !important;
 }
 .input-group.input-group-search .input-group-btn>.btn-primary,
-.nav-v2 .nav-bubble, /* Change Message number color*/
 .nav-v2 .nav-dot /* Change the dot color*/
 
 {
@@ -15,4 +14,15 @@
 input.form-control:hover, textarea.form-control:hover, .select2-search input:hover, input.form-control:focus, textarea.form-control:focus, .select2-search input:focus
 {
     border-color: grey !important;
+}
+
+.nav-v2 .nav-bubble /* Change Message number color*/
+{
+    background-color: transparent !important;
+    color: #656565 !important;
+    font-size: 15px !important;
+
+}
+.nav-v2 .nav-bubble:before{
+    border-left: 0px solid transparent !important;
 }
