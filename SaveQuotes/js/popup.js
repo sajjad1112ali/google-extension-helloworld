@@ -61,7 +61,7 @@ function heartClicked(i, element){
 
         var likedQuotes = likedQuotesObj.likedQuotes;
 
-        if($(element).attr('class') == 'like')
+        if($(element).attr('class') == 'like pointer')
         {
             $(element).addClass('liked');
             if (typeof likedQuotes !== "undefined" && likedQuotes != null) {
@@ -78,10 +78,7 @@ function heartClicked(i, element){
         else
         {
             likedQuotes.splice(likedQuotes.indexOf(i),1);
-            console.log("Before removing");
-            console.log(likedQuotes);
             updateLiked(likedQuotes);
-            
             $(element).removeClass('liked');
         } // End check class
 
@@ -93,9 +90,6 @@ function heartClicked(i, element){
 
     function updateLiked(likedQuotes)
     {
-        
-        console.log("In function ");
-        console.log(likedQuotes);
         chrome.storage.sync.set({"likedQuotes": likedQuotes}, function(){}); 
     }
 
@@ -112,6 +106,11 @@ function heartClicked(i, element){
     {
         console.log(quotesToShow);
         console.log(likedQuotes);
+        if (quoteIndicator == "showLikedQuotes") {
+            likedQuotes = likedQuotes.reverse();
+        }
+        console.log(likedQuotes);
+
         quotesToShow.reverse().forEach(function (value, index) {
                 
             let li = document.createElement('li');
@@ -120,16 +119,15 @@ function heartClicked(i, element){
             if (quoteIndicator != "showLikedQuotes") {
              span.className = likedQuotes.includes(index) ? "like liked pointer" : "like pointer";
              span.title = likedQuotes.includes(index) ? "Remove from like" : "like this quote";
+             span.onclick = function() { heartClicked(index, span); };
              li.textContent = value;
             }
             else
             {
                 span.className = "like liked";
                 li.textContent = likedQuotes[quotesToShow[index]];
-                span.onclick = function() { heartClicked(index, span); };
             }
             span.textContent = '\u2665';
-            span.onclick = function() { heartClicked(index, span); };
             li.appendChild(span);
             addToOrderList.appendChild(li);  
         });

@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "Save Quotes",
-    "version": "1.0",
+    "version": "1.1",
     "description": "This extension will save your favorite Quotations.",
     "icons": {
         "128": "./images/icon128.png",
