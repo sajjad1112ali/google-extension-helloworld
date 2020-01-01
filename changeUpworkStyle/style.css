@@ -1,4 +1,8 @@
- .badge-verified span, .badge-unverified span,
+body{
+  min-width: 250px;
+  min-height: 250px;
+}
+.badge-verified span, .badge-unverified span,
  .air-icon-verified:before {
     color: grey !important;
 }
@@ -49,3 +53,104 @@ input.form-control:hover, textarea.form-control:hover, .select2-search input:hov
     left: 20px; 
     bottom: 0;
 }
+
+/* Change pulse color*/
+span.pulse-dot .glyphicon{
+    background-color :  #656565 ;
+
+}
+span.pulse-dot{
+    background-color :  #656565 ;
+    border: 2px solid #656565 ;
+}
+span.pulse-dot:before{
+    background-color :  #656565 ;
+}
+
+/* POP UP WINDOW */
+
+.open-button {
+    background-color: #555;
+    color: white;
+    border: none;
+    cursor: pointer;
+    opacity: 0.8;
+    position: fixed;
+    bottom: 23px;
+    left: 28px;
+    width: 70px;
+    border-radius: 50%;
+    height: 70px;
+    outline: none;
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  
+  /* The popup chat - hidden by default */
+  .chat-popup {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 15px;
+    border: 3px solid #f1f1f1;
+    z-index: 11;
+    width: 306px;
+    background-color: white;
+
+  }
+  
+  /* Add styles to the form container */
+  .button-container {
+    width: 300px;
+    padding: 30px 25px 10px 10px;
+    background-color: white;
+  }
+  
+  /* Full-width textarea */
+  .button-container .link-buttons {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: #f1f1f1;
+    resize: none;
+    min-height: 200px;
+  }
+  
+  /* When the textarea gets focus, do something */
+  .button-container textarea:focus {
+    background-color: #ddd;
+    outline: none;
+  }
+  
+  /* Set a style for the submit/send button */
+  .button-container .btn-cancel {
+    color: white;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 10px;
+    opacity: 0.8;
+    background-color: red;
+    position: absolute;
+    top: -17px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    right: -21px;
+    text-align: center;
+    outline: none;
+  }
+  
+  /* Add a red background color to the cancel button */
+  .button-container .btn-cancel {
+    background-color: red;
+  }
+  
+  /* Add some hover effects to buttons */
+  .button-container .btn-cancel:hover, .open-button:hover {
+    opacity: 1;
+  }
+  .btn-size-m{
+    margin: 1rem 0rem 0rem 1.5rem;
+  }
