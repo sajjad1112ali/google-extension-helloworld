@@ -1,6 +1,13 @@
 $(function(){
   chrome.runtime.sendMessage({todo: "showPageAction"});
 
+  var originalImagesSrc = [];
+
+
+  $(".input-group.input-group-search .input-group-btn>span.btn-primary, span.mentions, .badge-verified span, .badge-unverified span, .air-icon-verified, .nav-v2 .nav-right>li.active .nav-item, .nav-dropdown .active, .nav-v2 .nav-dot, .nav-v2 .nav-bubble, .blueberry-text, .opening-counts-value a").addClass("extensionCss");
+
+  changeImagesSrc();
+
   chrome.runtime.onMessage.addListener(function(request, sender, sendResponse){
     var addColor = "#" + request.clickedColor;
     if (request.todo == "changeColor") {
@@ -14,23 +21,65 @@ $(function(){
     if (request.todo == "addExtensionCss") {
       var bgColor = "#" + request.fontColor;
       $(".pulse-dot .glyphicon, .pulse-dot").css("background-color", bgColor);
+
+      
+  $(".input-group.input-group-search .input-group-btn>span.btn-primary, span.mentions, .badge-verified span, .badge-unverified span, .air-icon-verified, .nav-v2 .nav-right>li.active .nav-item, .nav-dropdown .active, .nav-v2 .nav-dot, .nav-v2 .nav-bubble, .blueberry-text, .opening-counts-value a").addClass("extensionCss");
+
+
     }
   else{
-      $(".pulse-dot .glyphicon, .pulse-dot").css("background-color", "#14BFF4");
+
+
+    
+  $(".input-group.input-group-search .input-group-btn>span.btn-primary, span.mentions, .badge-verified span, .badge-unverified span, .air-icon-verified, .nav-v2 .nav-right>li.active .nav-item, .nav-dropdown .active, .nav-v2 .nav-dot, .nav-v2 .nav-bubble, .blueberry-text, .opening-counts-value a").removeClass("extensionCss");
+
+  
+     $("span.pulse-dot").css({
+        "background-color": "#14BFF4",
+        "border": "2px solid #14BFF4 "
+      });
+
+
+    // var images = document.getElementsByTagName('img');
+    // for (var i = 0, l = images.length; i < l; i++) {
+    //   if (images[i].alt !="Icon community") {
+    //     images[i].src = originalImagesSrc[i];
+        
+    //   }
+    // }
+
+      // $(".pulse-dot .glyphicon, .input-group.input-group-search .input-group-btn>span.btn-primary").css("background-color", "#14BFF4");
+      // $(".nav-v2 .nav-right>li.active .nav-item").css("color", "#656565");
+
+      // $("span.pulse-dot").css({
+      //   "background-color": "#14BFF4",
+      //   "border": "2px solid #14BFF4 "
+      // });
+
+
+      // $("span.air-icon-verified, badge-verified span, badge-unverified span").addClass("removeCss");
 
     }
 });
 
 
+function changeImagesSrc(){
+
 var customLogo = ' <img src="https://raw.githubusercontent.com/sajjad1112ali/google-extension-helloworld/master/changeUpworkStyle/images/Upwork-logo-black.png" class="img-fluid" style="width: 100%;">';
+
   $("[data-cy='brand']").html(customLogo);
+
     var images = document.getElementsByTagName('img');
     for (var i = 0, l = images.length; i < l; i++) {
       if (images[i].alt !="Icon community") {
+        originalImagesSrc.push(images[i].src);
         images[i].src = 'https://raw.githubusercontent.com/sajjad1112ali/google-extension-helloworld/master/changeUpworkStyle/images/Upwork-logo-black.png';
         
       }
-    }    
+    }  
+    
+}
+    
 
     var ContractsLink = '<a href="https://www.upwork.com/ab/c/2572761/contracts/" class="btn btn-primary custom-links-btn" role="button" target="_blank" aria-pressed="true">Contracts</a>';
 

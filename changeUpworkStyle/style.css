@@ -2,54 +2,56 @@ body{
   min-width: 250px;
   min-height: 250px;
 }
-.badge-verified span, .badge-unverified span,
- .air-icon-verified:before {
-    color: grey !important;
+
+.badge-verified span.extensionCss, .badge-unverified span.extensionCss,
+ .air-icon-verified.extensionCss:before {
+    color: grey;
 }
 
-.nav-v2 .nav-right>li.active .nav-item /* Change Active nav color*/
+.nav-v2 .nav-right>li.active .nav-item.extensionCss, /* Change Active nav color  */ 
+.nav-dropdown .active.extensionCss
 {
-   color: #afafaf !important;
+   color: #afafaf;
 }
 
+span.mentions.extensionCss,
+.input-group.input-group-search .input-group-btn>span.btn-primary.extensionCss /* CHANGE search box right button*/
+{
+    background-color: grey;
+} 
 
-.nav-v2 .nav-dot /* Change the dot color */
+
+.nav-v2 .nav-dot.extensionCss /* Change the dot color */
 
 {
-    background-color: #f2f2f2 !important;
+    background-color: #afafaf;
 
 }
+ 
 
-span.mentions,
-.input-group.input-group-search .input-group-btn>.btn-primary /* CHANGE search box right button*/
-
+.nav-v2 .nav-bubble.extensionCss /* Change Message number color*/
 {
-    background-color: grey !important;
-
+    background-color: transparent;
+    color: #656565;
+    font-size: 15px;
 }
+.nav-v2 .nav-bubble.extensionCss:before
+{
+    border-left: 0px solid transparent;
+}
+
 
 
 input.form-control:hover, textarea.form-control:hover, .select2-search input:hover, input.form-control:focus, textarea.form-control:focus, .select2-search input:focus
 
 {
-    border-color: grey !important;
+    border-color: grey;
 }
 
-.nav-v2 .nav-bubble /* Change Message number color*/
-{
-    background-color: transparent !important;
-    color: #656565 !important;
-    font-size: 15px !important;
-
+.blueberry-text.extensionCss,
+.opening-counts-value a.extensionCss{
+    border-color: black ;
 }
-.blueberry-text,
-.opening-counts-value a{
-    border-color: black !important;
-}
-.nav-v2 .nav-bubble:before{
-    border-left: 0px solid transparent !important;
-}
-
 .anchorCustomBtn{
     position: fixed;
     left: 20px; 
@@ -57,15 +59,15 @@ input.form-control:hover, textarea.form-control:hover, .select2-search input:hov
 }
 
 /* Change pulse color*/
-span.pulse-dot .glyphicon{
+span.pulse-dot .glyphicon.extensionCss{
     background-color :  #656565 ;
 
 }
-span.pulse-dot{
+span.pulse-dot.extensionCss{
     background-color :  #656565 ;
     border: 2px solid #656565 ;
 }
-span.pulse-dot:before{
+span.pulse-dot.extensionCss:before{
     background-color :  #656565 ;
 }
 

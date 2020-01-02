@@ -23,6 +23,7 @@
         "matches": ["https://www.upwork.com/*"]
       }],
       "permissions": [
+        "storage",
           "tabs",
           "https://www.upwork.com/*"
       ]
