@@ -12,6 +12,7 @@ body{
    color: #afafaf !important;
 }
 
+
 .nav-v2 .nav-dot /* Change the dot color */
 
 {
@@ -19,6 +20,7 @@ body{
 
 }
 
+span.mentions,
 .input-group.input-group-search .input-group-btn>.btn-primary /* CHANGE search box right button*/
 
 {

@@ -1,8 +1,8 @@
 {
     "manifest_version": 2,
-    "name": "Change Style",
-    "version": "1.7",
-    "description": "Extension for changing the style of a specific page.",
+    "name": "Change Facebook Notification Style",
+    "version": "1.1",
+    "description": "Extension for changing the notification of facebook.",
     "icons": {
         "128": "./images/icon128.png",
         "48": "./images/icon48.png",
@@ -11,7 +11,7 @@
     "page_action": {
         "default_action": "./images/icon16.png",
         "default_popup": "popup.html",
-        "default_title": "Upwok Style"
+        "default_title": "Change Facebook Notification Color"
     },
     "background": {
         "scripts": ["./js/eventPage.js"],
@@ -20,10 +20,10 @@
     "content_scripts": [{
         "css": ["./style.css"],
         "js": ["./js/jquery.js","./js/content.js"],
-        "matches": ["https://www.upwork.com/*"]
+        "matches": ["https://www.facebook.com/*"]
       }],
       "permissions": [
           "tabs",
-          "https://www.upwork.com/*"
+          "https://www.facebook.com/*"
       ]
 }
