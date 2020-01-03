@@ -4,7 +4,7 @@ $(function(){
   var originalImagesSrc = [];
 
 
-  $(".input-group.input-group-search .input-group-btn>span.btn-primary, span.mentions, .badge-verified span, .badge-unverified span, .air-icon-verified, .nav-v2 .nav-right>li.active .nav-item, .nav-dropdown .active, .nav-v2 .nav-dot, .nav-v2 .nav-bubble, .blueberry-text, .opening-counts-value a").addClass("extensionCss");
+  // $(".input-group.input-group-search .input-group-btn>span.btn-primary, span.mentions, .badge-verified span, .badge-unverified span, .air-icon-verified, .nav-v2 .nav-right>li.active .nav-item, .nav-dropdown .active, .nav-v2 .nav-dot, .nav-v2 .nav-bubble, .blueberry-text, .opening-counts-value a").addClass("extensionCss");
 
   changeImagesSrc();
 
@@ -19,45 +19,46 @@ $(function(){
     }
     else
     if (request.todo == "addExtensionCss") {
-      var bgColor = "#" + request.fontColor;
-      $(".pulse-dot .glyphicon, .pulse-dot").css("background-color", bgColor);
-
+      var bgColor = "#" + request.clickedColor;
+      var fontColor = "#" + request.fontColor;
+      console.log(`HELLO I AM THE SELECTED COLOR ${bgColor}`);
+    
       
-  $(".input-group.input-group-search .input-group-btn>span.btn-primary, span.mentions, .badge-verified span, .badge-unverified span, .air-icon-verified, .nav-v2 .nav-right>li.active .nav-item, .nav-dropdown .active, .nav-v2 .nav-dot, .nav-v2 .nav-bubble, .blueberry-text, .opening-counts-value a").addClass("extensionCss");
+      $(".input-group.input-group-search .input-group-btn>span.btn-primary, span.mentions, .badge-verified span, .badge-unverified span, .air-icon-verified, .nav-v2 .nav-right>li.active .nav-item, .nav-dropdown .active, .nav-v2 .nav-dot, .nav-v2 .nav-bubble, .blueberry-text, .opening-counts-value a").addClass("extensionCss");
 
+  console.log("ADD");
+
+  
+   
+     $(".pulse-dot .glyphicon, .pulse-dot").css({
+        "background-color": bgColor,
+        "border": "2px solid " +bgColor
+      });
+
+  $(".pulse-dot .glyphicon, .pulse-dot, span.mentions, .input-group.input-group-search .input-group-btn>.btn-primary").css("background-color", bgColor);
+      
+  $("span.mentions").css("color", fontColor);
+  //span.mentions.extensionCss, 
 
     }
   else{
 
 
+  console.log("REMOVE");
     
   $(".input-group.input-group-search .input-group-btn>span.btn-primary, span.mentions, .badge-verified span, .badge-unverified span, .air-icon-verified, .nav-v2 .nav-right>li.active .nav-item, .nav-dropdown .active, .nav-v2 .nav-dot, .nav-v2 .nav-bubble, .blueberry-text, .opening-counts-value a").removeClass("extensionCss");
 
   
-     $("span.pulse-dot").css({
+     $(".pulse-dot .glyphicon, .pulse-dot").css({
         "background-color": "#14BFF4",
         "border": "2px solid #14BFF4 "
       });
 
 
-    // var images = document.getElementsByTagName('img');
-    // for (var i = 0, l = images.length; i < l; i++) {
-    //   if (images[i].alt !="Icon community") {
-    //     images[i].src = originalImagesSrc[i];
-        
-    //   }
-    // }
-
-      // $(".pulse-dot .glyphicon, .input-group.input-group-search .input-group-btn>span.btn-primary").css("background-color", "#14BFF4");
-      // $(".nav-v2 .nav-right>li.active .nav-item").css("color", "#656565");
-
-      // $("span.pulse-dot").css({
-      //   "background-color": "#14BFF4",
-      //   "border": "2px solid #14BFF4 "
-      // });
+      $(".pulse-dot .glyphicon, .pulse-dot, span.mentions, .input-group.input-group-search .input-group-btn>.btn-primary").css("background-color", "#14BFF4");
 
 
-      // $("span.air-icon-verified, badge-verified span, badge-unverified span").addClass("removeCss");
+      $(".pulse-dot .glyphicon, .pulse-dot, span.mentions").css("color", "ffffff");
 
     }
 });
