@@ -21,8 +21,8 @@ span.mentions.extensionCss,
 } 
 
 
-.nav-v2 .nav-dot.extensionCss /* Change the dot color */
-
+.nav-v2 .nav-dot.extensionCss, /* Change the dot color */
+.nav-dot.extensionCss
 {
     background-color: #afafaf;
 

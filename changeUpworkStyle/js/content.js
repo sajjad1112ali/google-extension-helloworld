@@ -8,7 +8,6 @@ $(function(){
 
 
 
-
   chrome.storage.sync.get(["bg_color", "font_color", "applyAEtCss"], function (styles) {
 
     if (styles.applyAEtCss == "addExtensionCss") {
@@ -28,6 +27,7 @@ $(function(){
 
   chrome.runtime.onMessage.addListener(function(request, sender, sendResponse){
     var addColor = "#" + request.clickedColor;
+    console.log(request.todo);
     if (request.todo == "changeColor") {
         $("span.mentions, .input-group.input-group-search .input-group-btn>.btn-primary").css("background-color", addColor);
 
@@ -43,47 +43,10 @@ $(function(){
     }
     else
     {
+      console.log("IN ANOTHER CALL");
       // Check if extension Css checkd or not
-
-      addPreviouslySelectedStyle(request);
+      isAddExtensioChecked(request);
     }
-    //   if (request.todo == "addExtensionCss") {
-  //     var bgColor = "#" + request.clickedColor;
-  //     var fontColor = "#" + request.fontColor;
-    
-      
-  //     $(".input-group.input-group-search .input-group-btn>span.btn-primary, span.mentions, .badge-verified span, .badge-unverified span, .air-icon-verified, .nav-v2 .nav-right>li.active .nav-item, .nav-dropdown .active, .nav-v2 .nav-dot, .nav-v2 .nav-bubble, .blueberry-text, .opening-counts-value a").addClass("extensionCss");
-
-  //    $(".pulse-dot .glyphicon, .pulse-dot").css({
-  //       "background-color": bgColor,
-  //       "border": "2px solid " +bgColor,
-  //       "color":fontColor
-  //     });
-
-  //   $(" span.mentions, .input-group.input-group-search .input-group-btn>.btn-primary").css("background-color", bgColor);
-        
-  //   $("span.mentions").css("color", fontColor);
-
-  //   }
-  // else{
-
-   
-  // $(".input-group.input-group-search .input-group-btn>span.btn-primary, span.mentions, .badge-verified span, .badge-unverified span, .air-icon-verified, .nav-v2 .nav-right>li.active .nav-item, .nav-dropdown .active, .nav-v2 .nav-dot, .nav-v2 .nav-bubble, .blueberry-text, .opening-counts-value a").removeClass("extensionCss");
-
-  
-  //    $(".pulse-dot .glyphicon, .pulse-dot").css({
-  //       "background-color": "#14BFF4",
-  //       "border": "2px solid #14BFF4",
-  //       "color": "#ffffff "
-  //     });
-
-
-  //     $("span.mentions, .input-group.input-group-search .input-group-btn>.btn-primary").css("background-color", "#37A000");
-
-
-  //     $("span.mentions").css("color", "ffffff");
-
-  //   }
 });
 
 
@@ -150,10 +113,6 @@ var customLogo = ' <img src="https://raw.githubusercontent.com/sajjad1112ali/goo
     $('#toggleBtnSize').click(function() {
        $(".custom-links-btn").toggleClass("btn-sm");
   });    
-
-
-
-
   
 });
 
@@ -162,39 +121,40 @@ function isAddExtensioChecked (request){
   if (request.todo == "addExtensionCss") {
     var bgColor = "#" + request.clickedColor;
     var fontColor = "#" + request.fontColor;
-  console.log("ADDING COLOR");
     
-    $(".input-group.input-group-search .input-group-btn>span.btn-primary, span.mentions, .badge-verified span, .badge-unverified span, .air-icon-verified, .nav-v2 .nav-right>li.active .nav-item, .nav-dropdown .active, .nav-v2 .nav-dot, .nav-v2 .nav-bubble, .blueberry-text, .opening-counts-value a").addClass("extensionCss");
+    $(".input-group.input-group-search .input-group-btn>span.btn-primary, span.mentions, .badge-verified span, .badge-unverified span, .air-icon-verified, .nav-v2 .nav-right>li.active .nav-item, .nav-dropdown .active, .nav-v2 .nav-dot, .nav-v2 .nav-bubble, .blueberry-text, .opening-counts-value a, .nav-dot").addClass("extensionCss");
 
-   $(".pulse-dot .glyphicon, .pulse-dot").css({
-      "background-color": bgColor,
-      "border": "2px solid " +bgColor,
-      "color":fontColor
-    });
 
-  $(" span.mentions, .input-group.input-group-search .input-group-btn>.btn-primary").css("background-color", bgColor);
-      
-  $("span.mentions").css("color", fontColor);
+    
+addCommonStyles(bgColor, fontColor, bgColor );
 
   }
 else{
 
-  console.log("REMOVING COLOR");
  
-$(".input-group.input-group-search .input-group-btn>span.btn-primary, span.mentions, .badge-verified span, .badge-unverified span, .air-icon-verified, .nav-v2 .nav-right>li.active .nav-item, .nav-dropdown .active, .nav-v2 .nav-dot, .nav-v2 .nav-bubble, .blueberry-text, .opening-counts-value a").removeClass("extensionCss");
+$(".input-group.input-group-search .input-group-btn>span.btn-primary, span.mentions, .badge-verified span, .badge-unverified span, .air-icon-verified, .nav-v2 .nav-right>li.active .nav-item, .nav-dropdown .active, .nav-v2 .nav-dot, .nav-v2 .nav-bubble, .blueberry-text, .opening-counts-value a, nav-dot").removeClass("extensionCss");
 
-
-   $(".pulse-dot .glyphicon, .pulse-dot").css({
-      "background-color": "#14BFF4",
-      "border": "2px solid #14BFF4",
-      "color": "#ffffff "
-    });
-
-
-    $("span.mentions, .input-group.input-group-search .input-group-btn>.btn-primary").css("background-color", "#37A000");
-
-
-    $("span.mentions").css("color", "ffffff");
+addCommonStyles("#14BFF4", "#FFFFFF", "#37A000" );
 
   }
+}
+
+function addCommonStyles(bg, fnt, tb)
+{
+
+
+
+  $(".pulse-dot .glyphicon, .pulse-dot").css({
+    "background-color": bg,
+    "border": "2px solid "+bg,
+    "color": fnt
+  });
+
+
+  $("span.mentions, .input-group.input-group-search .input-group-btn>.btn-primary").css("background-color", tb);
+
+
+  $("span.mentions").css("color", fnt);
+
+
 }
