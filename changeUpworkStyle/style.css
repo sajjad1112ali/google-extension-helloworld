@@ -60,18 +60,7 @@ input.form-control:hover, textarea.form-control:hover, .select2-search input:hov
     bottom: 0;
 }
 
-/* Change pulse color*/
-span.pulse-dot .glyphicon{
-    background-color :  #656565 ;
 
-}
-span.pulse-dot{
-    background-color :  #656565 ;
-    border: 2px solid #656565 ;
-}
-span.pulse-dot:before{
-    background-color :  #656565 ;
-}
 
 /* POP UP WINDOW */
 

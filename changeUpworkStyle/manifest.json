@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "Change Style",
-    "version": "1.7",
+    "version": "1.8",
     "description": "Extension for changing the style of a specific page.",
     "icons": {
         "128": "./images/icon128.png",

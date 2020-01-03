@@ -87,9 +87,10 @@ $(function () {
         }
         else {
             $("#colorPickerContainer").addClass("ColorPickerhidden");
-
         }
     }
+
+
     function saveToChrome(obj) {
         chrome.storage.sync.set(obj, function () {
             console.log(obj);
@@ -105,11 +106,14 @@ $(function () {
 
             if (styles.bg_color && action == "addExtensionCss") {
                 bgClr = styles.bg_color;
+                document.getElementById('colorPicker').jscolor.fromString(styles.bg_color);
 
             }
 
             if (styles.font_color && action == "addExtensionCss") {
                 fontClr = styles.font_color;
+                
+                document.getElementById('textColor').jscolor.fromString(styles.font_color);
             }
 
             var propertyObj = { todo: action, clickedColor: bgClr, fontColor: fontClr };

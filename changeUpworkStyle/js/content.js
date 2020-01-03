@@ -3,64 +3,87 @@ $(function(){
 
   var originalImagesSrc = [];
 
-
-  // $(".input-group.input-group-search .input-group-btn>span.btn-primary, span.mentions, .badge-verified span, .badge-unverified span, .air-icon-verified, .nav-v2 .nav-right>li.active .nav-item, .nav-dropdown .active, .nav-v2 .nav-dot, .nav-v2 .nav-bubble, .blueberry-text, .opening-counts-value a").addClass("extensionCss");
-
   changeImagesSrc();
+
+
+
+
+
+  chrome.storage.sync.get(["bg_color", "font_color", "applyAEtCss"], function (styles) {
+
+    if (styles.applyAEtCss == "addExtensionCss") {
+      console.log("ADD EXTENSION CHECKED");
+      var request = {"todo": "addExtensionCss", "clickedColor": styles.bg_color, "fontColor": styles.font_color};
+
+
+
+      isAddExtensioChecked(request);
+    }
+});
+
+
+
+
+
 
   chrome.runtime.onMessage.addListener(function(request, sender, sendResponse){
     var addColor = "#" + request.clickedColor;
     if (request.todo == "changeColor") {
-        $(".pulse-dot .glyphicon, .pulse-dot, span.mentions, .input-group.input-group-search .input-group-btn>.btn-primary").css("background-color", addColor);
+        $("span.mentions, .input-group.input-group-search .input-group-btn>.btn-primary").css("background-color", addColor);
+
+        $(".pulse-dot .glyphicon, .pulse-dot").css({
+          "background-color": addColor,
+          "border": "2px solid " +addColor,
+        });
+
     }
     else
     if (request.todo == "changeTextColor") {
       $(".pulse-dot .glyphicon, .pulse-dot, span.mentions").css("color", addColor);
     }
     else
-    if (request.todo == "addExtensionCss") {
-      var bgColor = "#" + request.clickedColor;
-      var fontColor = "#" + request.fontColor;
-      console.log(`HELLO I AM THE SELECTED COLOR ${bgColor}`);
+    {
+      // Check if extension Css checkd or not
+
+      addPreviouslySelectedStyle(request);
+    }
+    //   if (request.todo == "addExtensionCss") {
+  //     var bgColor = "#" + request.clickedColor;
+  //     var fontColor = "#" + request.fontColor;
     
       
-      $(".input-group.input-group-search .input-group-btn>span.btn-primary, span.mentions, .badge-verified span, .badge-unverified span, .air-icon-verified, .nav-v2 .nav-right>li.active .nav-item, .nav-dropdown .active, .nav-v2 .nav-dot, .nav-v2 .nav-bubble, .blueberry-text, .opening-counts-value a").addClass("extensionCss");
+  //     $(".input-group.input-group-search .input-group-btn>span.btn-primary, span.mentions, .badge-verified span, .badge-unverified span, .air-icon-verified, .nav-v2 .nav-right>li.active .nav-item, .nav-dropdown .active, .nav-v2 .nav-dot, .nav-v2 .nav-bubble, .blueberry-text, .opening-counts-value a").addClass("extensionCss");
 
-  console.log("ADD");
+  //    $(".pulse-dot .glyphicon, .pulse-dot").css({
+  //       "background-color": bgColor,
+  //       "border": "2px solid " +bgColor,
+  //       "color":fontColor
+  //     });
 
-  
+  //   $(" span.mentions, .input-group.input-group-search .input-group-btn>.btn-primary").css("background-color", bgColor);
+        
+  //   $("span.mentions").css("color", fontColor);
+
+  //   }
+  // else{
+
    
-     $(".pulse-dot .glyphicon, .pulse-dot").css({
-        "background-color": bgColor,
-        "border": "2px solid " +bgColor
-      });
-
-  $(".pulse-dot .glyphicon, .pulse-dot, span.mentions, .input-group.input-group-search .input-group-btn>.btn-primary").css("background-color", bgColor);
-      
-  $("span.mentions").css("color", fontColor);
-  //span.mentions.extensionCss, 
-
-    }
-  else{
-
-
-  console.log("REMOVE");
-    
-  $(".input-group.input-group-search .input-group-btn>span.btn-primary, span.mentions, .badge-verified span, .badge-unverified span, .air-icon-verified, .nav-v2 .nav-right>li.active .nav-item, .nav-dropdown .active, .nav-v2 .nav-dot, .nav-v2 .nav-bubble, .blueberry-text, .opening-counts-value a").removeClass("extensionCss");
+  // $(".input-group.input-group-search .input-group-btn>span.btn-primary, span.mentions, .badge-verified span, .badge-unverified span, .air-icon-verified, .nav-v2 .nav-right>li.active .nav-item, .nav-dropdown .active, .nav-v2 .nav-dot, .nav-v2 .nav-bubble, .blueberry-text, .opening-counts-value a").removeClass("extensionCss");
 
   
-     $(".pulse-dot .glyphicon, .pulse-dot").css({
-        "background-color": "#14BFF4",
-        "border": "2px solid #14BFF4 "
-      });
+  //    $(".pulse-dot .glyphicon, .pulse-dot").css({
+  //       "background-color": "#14BFF4",
+  //       "border": "2px solid #14BFF4",
+  //       "color": "#ffffff "
+  //     });
 
 
-      $(".pulse-dot .glyphicon, .pulse-dot, span.mentions, .input-group.input-group-search .input-group-btn>.btn-primary").css("background-color", "#14BFF4");
+  //     $("span.mentions, .input-group.input-group-search .input-group-btn>.btn-primary").css("background-color", "#37A000");
 
 
-      $(".pulse-dot .glyphicon, .pulse-dot, span.mentions").css("color", "ffffff");
+  //     $("span.mentions").css("color", "ffffff");
 
-    }
+  //   }
 });
 
 
@@ -97,10 +120,6 @@ var customLogo = ' <img src="https://raw.githubusercontent.com/sajjad1112ali/goo
 
     var popUpWindow = '    <button class="open-button" id="openLinksWindowBtn">+</button>\
     <div class="chat-popup" id="buttonsWindow">\
-    <div class="custom-control custom-switch btn-size-m">\
-    <input type="checkbox" class="custom-control-input" id="toggleBtnSize">\
-    <label class="custom-control-label" for="toggleBtnSize">Button Small</label>\
-  </div>\
       <div class="button-container">\
         <div class="link-buttons">\
         '+ContractsLink+'<br>\
@@ -132,5 +151,50 @@ var customLogo = ' <img src="https://raw.githubusercontent.com/sajjad1112ali/goo
        $(".custom-links-btn").toggleClass("btn-sm");
   });    
 
+
+
+
+  
 });
 
+function isAddExtensioChecked (request){
+  console.log(request);
+  if (request.todo == "addExtensionCss") {
+    var bgColor = "#" + request.clickedColor;
+    var fontColor = "#" + request.fontColor;
+  console.log("ADDING COLOR");
+    
+    $(".input-group.input-group-search .input-group-btn>span.btn-primary, span.mentions, .badge-verified span, .badge-unverified span, .air-icon-verified, .nav-v2 .nav-right>li.active .nav-item, .nav-dropdown .active, .nav-v2 .nav-dot, .nav-v2 .nav-bubble, .blueberry-text, .opening-counts-value a").addClass("extensionCss");
+
+   $(".pulse-dot .glyphicon, .pulse-dot").css({
+      "background-color": bgColor,
+      "border": "2px solid " +bgColor,
+      "color":fontColor
+    });
+
+  $(" span.mentions, .input-group.input-group-search .input-group-btn>.btn-primary").css("background-color", bgColor);
+      
+  $("span.mentions").css("color", fontColor);
+
+  }
+else{
+
+  console.log("REMOVING COLOR");
+ 
+$(".input-group.input-group-search .input-group-btn>span.btn-primary, span.mentions, .badge-verified span, .badge-unverified span, .air-icon-verified, .nav-v2 .nav-right>li.active .nav-item, .nav-dropdown .active, .nav-v2 .nav-dot, .nav-v2 .nav-bubble, .blueberry-text, .opening-counts-value a").removeClass("extensionCss");
+
+
+   $(".pulse-dot .glyphicon, .pulse-dot").css({
+      "background-color": "#14BFF4",
+      "border": "2px solid #14BFF4",
+      "color": "#ffffff "
+    });
+
+
+    $("span.mentions, .input-group.input-group-search .input-group-btn>.btn-primary").css("background-color", "#37A000");
+
+
+    $("span.mentions").css("color", "ffffff");
+
+  }
+}
