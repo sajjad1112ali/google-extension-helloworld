@@ -73,7 +73,6 @@ function heartClicked(i, element){
             }
     
             updateLiked(likedQuotes);
-                       
         }
         else
         {
@@ -96,7 +95,6 @@ function heartClicked(i, element){
     
     function addEmptyToList(addTo, msg)
     {
-       
         let li = document.createElement('li');
         li.textContent = msg;
         addTo.appendChild(li);

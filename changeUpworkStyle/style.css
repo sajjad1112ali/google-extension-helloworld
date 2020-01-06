@@ -16,11 +16,10 @@ body{
 .p-2 span {
   margin: 8px 0px;
   display: block;
-
 }
 
 .badge-verified span.extensionCss, .badge-unverified span.extensionCss,
- .air-icon-verified.extensionCss:before {
+.air-icon-verified.extensionCss:before {
     color: #B2B2B2;
 }
 
@@ -164,4 +163,22 @@ input.form-control:hover, textarea.form-control:hover, .select2-search input:hov
   }
   .btn-size-m{
     margin: 1rem 0rem 0rem 1.5rem;
+  }
+  custome-mark-unread{
+
+    color: aliceblue;
+    background-color: green;
+    position: absolute;
+    right:0;
+    cursor: pointer;
+  }
+
+  
+  custome-mark-unread.mark-as-read{
+    background-color: red;
+  }
+
+  .my-custom-test-class{
+    background-color: #B2B2B2;
+    color: #FFFFFF;
   }

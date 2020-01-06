@@ -5,6 +5,109 @@ $(function(){
 
   changeImagesSrc();
 
+  
+
+  
+var re = new RegExp("(http|https):\/\/www.upwork.com\/messages\/rooms\/.*");
+
+  if(re.test(location.href))
+  {
+  
+    setTimeout(() => {
+      //$(".room-list-name-span, .leftnav-menu, .nav-left").append("<custome-mark-unread>Mark Unread</custome-mark-unread>");
+      //$( "custome-mark-unread" ).click(setItemReadUnread);
+      setSavedRoomUnread();
+    }, 8000);
+  }
+
+  function setItemReadUnread() {
+    $(this).parent().addClass("my-custom-test-class");
+    var currentRoomID = $(this).parent().parent().parent().parent().attr("data-roomid");
+    var dataMarkStatus = $(this).attr("data-mark-status");
+    console.log(dataMarkStatus);
+    //data-mark-status
+
+    if (dataMarkStatus == "mark-as-read") {
+      // remove from from local storage
+      $(this).attr("data-mark-status", "mark-as-unread").text("Mark as unread").removeClass("mark-as-read");
+    }
+    else{
+      // add to local storage
+      $(this).attr("data-mark-status", "mark-as-read").text("Mark as read").addClass("mark-as-read");
+
+    }
+
+
+    chrome.storage.sync.get('roomIds', function(roomIdsObj) {
+      var roomIds = roomIdsObj.roomIds;
+      if (typeof roomIds !== "undefined" && roomIds != null) {
+
+        console.log(`Room ids length befor = ${roomIds.length}`);
+        if (dataMarkStatus == "mark-as-read") {
+          console.log("Removing from");
+          roomIds.splice(roomIds.indexOf(currentRoomID),1);
+
+        } else {
+          console.log("Adding to . . ");
+
+          roomIds.push(currentRoomID);
+        }
+
+        console.log(`Room ids length after = ${roomIds.length}`);
+      }
+      else
+      {
+          roomIds = [currentRoomID];
+      }
+      console.log(roomIds);
+      return false;
+      // Saving roomIds to array
+      chrome.storage.sync.set({"roomIds": roomIds}, function(){
+        console.log("Room ID Saved to local storage");
+        console.log(roomIds);
+      });
+    }); // End saving roomIds 
+
+  }  // End setItemReadUnread
+
+
+
+  // Getting saved room IDs
+  function setSavedRoomUnread()
+  {
+    var allRoomIDs = [];
+
+    //$(".room-list-name-span, .leftnav-menu, .nav-left").append("<custome-mark-unread>Mark Unread</custome-mark-unread>");
+    //
+
+        // Getting all rom ids from list
+        $('.room-list-item').each(function(){
+          console.log(`Room Of List IDs = ${$(this).attr("data-roomid")}`);
+          allRoomIDs.push($(this).attr("data-roomid"));
+       }); // End getting all room ids
+
+
+    chrome.storage.sync.get(["roomIds"], function(roomIdsObj){
+      let savedRoomIds =  roomIdsObj.roomIds;
+
+
+
+      allRoomIDs.forEach(function (value, index) {
+          if (savedRoomIds.includes(value)) {
+          console.log(`ID Found in our data ${index} = ${ value}`);
+          $("ul.room-list").find(`[data-roomid='${value}']`).find('.room-list-name-span').addClass("my-custom-test-class").append("<custome-mark-unread class='mark-as-read' data-mark-status='mark-as-read'>Mark as read</custome-mark-unread>");
+          }
+          else
+          {
+            $("ul.room-list").find(`[data-roomid='${value}']`).find('.room-list-name-span').append("<custome-mark-unread  data-mark-status='mark-as-unread'>Mark as unread</custome-mark-unread>");
+          }
+        }); // End For each
+
+        $( "custome-mark-unread" ).click(setItemReadUnread);
+  });
+}
+
+
   $(".input-group.input-group-search .input-group-btn>span.btn-primary, span.mentions, .badge-verified span, .badge-unverified span, .air-icon-verified, .nav-v2 .nav-right>li.active .nav-item, .nav-dropdown .active, .nav-v2 .nav-dot, .nav-v2 .nav-bubble, .blueberry-text, .opening-counts-value a, .nav-dot").addClass("extensionCss");
 
 
@@ -105,7 +208,6 @@ var customLogo = ' <img src="https://raw.githubusercontent.com/sajjad1112ali/goo
 
     $( "#openLinksWindowBtn" ).click(function() {
       $("#buttonsWindow").css("display", "block");
-
     });
 
     

@@ -76,4 +76,6 @@ function addTotal(spendAmount)
                 chrome.notifications.create("limitReachedNotif", notifOption);
             }
         });
-    });}
+    });
+
+}
