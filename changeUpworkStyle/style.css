@@ -1,11 +1,27 @@
 body{
   min-width: 250px;
   min-height: 250px;
+
+}
+.popupwin{
+  padding: 10px 0px 10px 0px;
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+
+
+}
+.p-2{
+  padding: 0rem .5rem;
+}
+.p-2 span {
+  margin: 8px 0px;
+  display: block;
+
 }
 
 .badge-verified span.extensionCss, .badge-unverified span.extensionCss,
  .air-icon-verified.extensionCss:before {
-    color: grey;
+    color: #B2B2B2;
 }
 
 .nav-v2 .nav-right>li.active .nav-item.extensionCss, /* Change Active nav color  */ 
@@ -17,7 +33,7 @@ body{
 span.mentions.extensionCss,
 .input-group.input-group-search .input-group-btn>span.btn-primary.extensionCss /* CHANGE search box right button*/
 {
-    background-color: grey;
+    background-color: #B2B2B2;
 } 
 
 
@@ -47,7 +63,7 @@ span.mentions.extensionCss,
 input.form-control:hover, textarea.form-control:hover, .select2-search input:hover, input.form-control:focus, textarea.form-control:focus, .select2-search input:focus
 
 {
-    border-color: grey;
+    border-color: #B2B2B2;
 }
 
 .blueberry-text.extensionCss,

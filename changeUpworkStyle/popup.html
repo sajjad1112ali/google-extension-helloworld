@@ -6,22 +6,46 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Change Upwork Style</title>
     <link rel="stylesheet" href="./style.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+
     <script src="./js/jquery.js"></script>
     <script src="./js/jscolor.js"></script>
     <script src="./js/popup.js"></script>
 </head>
-<body>
+<body class="popupwin">
   <input type="checkbox" class="" id="toggleCss" checked>
   <label for="toggleCss">Apply extension style </label>
-  <div id="colorPickerContainer">
-    
-  <h3 for="colorPicker">Select background color</h3>
-  <input type="text" id="colorPicker" class="jscolor" value="ffcc00">
-  <br>
+
   
-  <h3 for="textColor">Select text color</h3>
-  <input type="text" id="textColor" class="jscolor" value="ffcc00">
-</div>
+  <br>
+  <hr>
+
+  <div id="colorPockersContainer">
+
+      <div id="colorPickerContainer" class="p-2">
+    
+        <h3>Question marks style</h3>
+        <span for="colorPicker">Select background color of question marks</span>
+        <input type="text" id="colorPicker" class="jscolor" value="ffcc00">
+      
+        <span for="textColor">Select text color of question marks</span>
+        <input type="text" id="textColor" class="jscolor" value="ffcc00">
+      </div>
+    
+    <br>
+    <hr>
+    
+    <div id="messagesColorPickerContainer" class="p-2">
+      
+      <h3>Unread messages style</h3>
+      <span for="colorPicker">Select background color of unread messages</span>
+      <input type="text" id="messagesColorPicker" class="jscolor" value="ffcc00">
+    
+      <span for="textColor">Select text color of unread messages</span>
+      <input type="text" id="messagesTextColor" class="jscolor" value="ffcc00">
+    </div>
+  </div>
+  <br>
 
 </body>
 </html>
