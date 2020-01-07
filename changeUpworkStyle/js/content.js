@@ -17,11 +17,11 @@ var re = new RegExp("(http|https):\/\/www.upwork.com\/messages\/rooms\/.*");
       //$(".room-list-name-span, .leftnav-menu, .nav-left").append("<custome-mark-unread>Mark Unread</custome-mark-unread>");
       //$( "custome-mark-unread" ).click(setItemReadUnread);
       setSavedRoomUnread();
-    }, 8000);
+    }, 10000);
   }
 
   function setItemReadUnread() {
-    $(this).parent().addClass("my-custom-test-class");
+    
     var currentRoomID = $(this).parent().parent().parent().parent().attr("data-roomid");
     var dataMarkStatus = $(this).attr("data-mark-status");
     console.log(dataMarkStatus);
@@ -30,10 +30,14 @@ var re = new RegExp("(http|https):\/\/www.upwork.com\/messages\/rooms\/.*");
     if (dataMarkStatus == "mark-as-read") {
       // remove from from local storage
       $(this).attr("data-mark-status", "mark-as-unread").text("Mark as unread").removeClass("mark-as-read");
+      $(this).parent().removeClass("my-custom-test-class");
+      //.find('.room-list-name-span').addClass("")
     }
     else{
       // add to local storage
       $(this).attr("data-mark-status", "mark-as-read").text("Mark as read").addClass("mark-as-read");
+      $(this).parent().addClass("my-custom-test-class");
+
 
     }
 
@@ -42,25 +46,18 @@ var re = new RegExp("(http|https):\/\/www.upwork.com\/messages\/rooms\/.*");
       var roomIds = roomIdsObj.roomIds;
       if (typeof roomIds !== "undefined" && roomIds != null) {
 
-        console.log(`Room ids length befor = ${roomIds.length}`);
         if (dataMarkStatus == "mark-as-read") {
-          console.log("Removing from");
           roomIds.splice(roomIds.indexOf(currentRoomID),1);
-
         } else {
-          console.log("Adding to . . ");
-
           roomIds.push(currentRoomID);
         }
-
-        console.log(`Room ids length after = ${roomIds.length}`);
       }
       else
       {
+        console.log("**************************** XXXXXXXXXXXXXXX ****************************");
+
           roomIds = [currentRoomID];
       }
-      console.log(roomIds);
-      return false;
       // Saving roomIds to array
       chrome.storage.sync.set({"roomIds": roomIds}, function(){
         console.log("Room ID Saved to local storage");
@@ -77,24 +74,21 @@ var re = new RegExp("(http|https):\/\/www.upwork.com\/messages\/rooms\/.*");
   {
     var allRoomIDs = [];
 
-    //$(".room-list-name-span, .leftnav-menu, .nav-left").append("<custome-mark-unread>Mark Unread</custome-mark-unread>");
-    //
-
         // Getting all rom ids from list
         $('.room-list-item').each(function(){
-          console.log(`Room Of List IDs = ${$(this).attr("data-roomid")}`);
           allRoomIDs.push($(this).attr("data-roomid"));
        }); // End getting all room ids
 
 
     chrome.storage.sync.get(["roomIds"], function(roomIdsObj){
-      let savedRoomIds =  roomIdsObj.roomIds;
-
-
+      let savedRoomIds =  roomIdsObj.roomIds ? roomIdsObj.roomIds : [];
 
       allRoomIDs.forEach(function (value, index) {
-          if (savedRoomIds.includes(value)) {
+
+        if (savedRoomIds.includes(value)) {
+          
           console.log(`ID Found in our data ${index} = ${ value}`);
+
           $("ul.room-list").find(`[data-roomid='${value}']`).find('.room-list-name-span').addClass("my-custom-test-class").append("<custome-mark-unread class='mark-as-read' data-mark-status='mark-as-read'>Mark as read</custome-mark-unread>");
           }
           else
