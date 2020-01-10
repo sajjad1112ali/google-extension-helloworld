@@ -14,10 +14,9 @@ var re = new RegExp("(http|https):\/\/www.upwork.com\/messages\/rooms\/.*");
   {
   
     setTimeout(() => {
-      //$(".room-list-name-span, .leftnav-menu, .nav-left").append("<custome-mark-unread>Mark Unread</custome-mark-unread>");
-      //$( "custome-mark-unread" ).click(setItemReadUnread);
+      
       setSavedRoomUnread();
-    }, 10000);
+    }, 90000);
   }
 
   function setItemReadUnread() {
@@ -54,7 +53,6 @@ var re = new RegExp("(http|https):\/\/www.upwork.com\/messages\/rooms\/.*");
       }
       else
       {
-        console.log("**************************** XXXXXXXXXXXXXXX ****************************");
 
           roomIds = [currentRoomID];
       }
@@ -102,7 +100,7 @@ var re = new RegExp("(http|https):\/\/www.upwork.com\/messages\/rooms\/.*");
 }
 
 
-  $(".input-group.input-group-search .input-group-btn>span.btn-primary, span.mentions, .badge-verified span, .badge-unverified span, .air-icon-verified, .nav-v2 .nav-right>li.active .nav-item, .nav-dropdown .active, .nav-v2 .nav-dot, .nav-v2 .nav-bubble, .blueberry-text, .opening-counts-value a, .nav-dot").addClass("extensionCss");
+  //$(".input-group.input-group-search .input-group-btn>span.btn-primary, span.mentions, .badge-verified span, .badge-unverified span, .air-icon-verified, .nav-v2 .nav-right>li.active .nav-item, .nav-dropdown .active, .nav-v2 .nav-dot, .nav-v2 .nav-bubble, .blueberry-text, .opening-counts-value a, .nav-dot").addClass("extensionCss");
 
 
   chrome.storage.sync.get(["bg_color", "font_color", "applyAEtCss", "messages_bg_color", "messages_font_color"], function (styles) {

@@ -1,184 +1,203 @@
-body{
-  min-width: 250px;
-  min-height: 250px;
 
-}
 .popupwin{
-  padding: 10px 0px 10px 0px;
-  margin: 0;
-  font-family: 'Open Sans', sans-serif;
+  padding: 10px 0px 10px 0px !important;
+  margin: 0 !important;
+  font-family: 'Open Sans', sans-serif !important;
 
+  min-width: 250px !important;
+  min-height: 100px !important;
 
 }
 .p-2{
-  padding: 0rem .5rem;
+  padding: 0rem .5rem !important;
 }
 .p-2 span {
-  margin: 8px 0px;
-  display: block;
+  margin: 8px 0px !important;
+  display: block !important;
 }
 
-.badge-verified span.extensionCss, .badge-unverified span.extensionCss,
-.air-icon-verified.extensionCss:before {
-    color: #B2B2B2;
+.badge-verified span, .badge-unverified span,
+.air-icon-verified:before {
+    color: #B2B2B2 !important;
 }
 
-.nav-v2 .nav-right>li.active .nav-item.extensionCss, /* Change Active nav color  */ 
-.nav-dropdown .active.extensionCss
+.nav-v2 .nav-right>li.active .nav-item, /* Change Active nav color  */ 
+.nav-dropdown .active
 {
-   color: #afafaf;
+   color: #afafaf !important;
 }
 
-span.mentions.extensionCss,
-.input-group.input-group-search .input-group-btn>span.btn-primary.extensionCss /* CHANGE search box right button*/
+.input-group.input-group-search .input-group-btn>span.btn-primary /* CHANGE search box right button*/
 {
-    background-color: #B2B2B2;
+    background-color: #B2B2B2 !important;
 } 
 
+span.mentions {
+  background-color: #FFFFFF !important;
+  font-weight: bold !important;
+  font-size: 13px !important;
+  color: #888888 !important;
+}
 
-.nav-v2 .nav-dot.extensionCss, /* Change the dot color */
-.nav-dot.extensionCss
+.nav-v2 .nav-dot, /* Change the dot color */
+.nav-dot
 {
-    background-color: #afafaf;
+    background-color: #afafaf !important;
 
 }
  
 
-.nav-v2 .nav-bubble.extensionCss /* Change Message number color*/
+.nav-v2 .nav-bubble /* Change Message number color*/
 {
-    background-color: transparent;
-    color: #656565;
-    font-size: 15px;
+    background-color: transparent !important;
+    color: #656565 !important;
+    font-size: 15px !important;
 }
-.nav-v2 .nav-bubble.extensionCss:before
+.nav-v2 .nav-bubble:before
 {
-    border-left: 0px solid transparent;
+    border-left: 0px solid transparent !important;
 }
 .ColorPickerhidden{
-  visibility: hidden;
+  visibility: hidden !important;
 }
 
 
 input.form-control:hover, textarea.form-control:hover, .select2-search input:hover, input.form-control:focus, textarea.form-control:focus, .select2-search input:focus
 
 {
-    border-color: #B2B2B2;
+    border-color: #B2B2B2 !important;
 }
 
-.blueberry-text.extensionCss,
-.opening-counts-value a.extensionCss{
-    border-color: black ;
+.blueberry-text,
+.opening-counts-value a{
+    border-color: black  !important;
 }
 .anchorCustomBtn{
-    position: fixed;
-    left: 20px; 
-    bottom: 0;
+    position: fixed !important;
+    left: 20px !important; 
+    bottom: 0 !important;
 }
 
+/* Change pulse color*/
+span.pulse-dot .glyphicon{
+  background-color :  #B2B2B2 !important ;
 
+}
+span.pulse-dot{
+  background-color :  #B2B2B2 !important ;
+  border: 2px solid #B2B2B2 !important ;
+}
+span.pulse-dot:before{
+  background-color :  #B2B2B2 !important ;
+}
 
 /* POP UP WINDOW */
 
 .open-button {
-    background-color: #555;
-    color: white;
-    border: none;
-    cursor: pointer;
-    opacity: 0.8;
-    position: fixed;
-    bottom: 23px;
-    left: 28px;
-    width: 70px;
-    border-radius: 50%;
-    height: 70px;
-    outline: none;
-    font-size: 2rem;
-    font-weight: bold;
+    background-color: #555 !important;
+    color: white !important;
+    border: none !important;
+    cursor: pointer !important;
+    opacity: 0.8 !important;
+    position: fixed !important;
+    bottom: 23px !important;
+    left: 28px !important;
+    width: 70px !important;
+    border-radius: 50% !important;
+    height: 70px !important;
+    outline: none !important;
+    font-size: 2rem !important;
+    font-weight: bold !important;
   }
   
   /* The popup chat - hidden by default */
   .chat-popup {
-    display: none;
-    position: fixed;
-    bottom: 0;
-    left: 15px;
-    border: 3px solid #f1f1f1;
-    z-index: 11;
-    width: 306px;
-    background-color: white;
+    display: none !important;
+    position: fixed !important;
+    bottom: 0 !important;
+    left: 15px !important;
+    border: 3px solid #f1f1f1 !important;
+    z-index: 11 !important;
+    width: 306px !important;
+    background-color: white !important;
 
   }
   
   /* Add styles to the form container */
   .button-container {
-    width: 300px;
-    padding: 30px 25px 10px 10px;
-    background-color: white;
+    width: 300px !important;
+    padding: 30px 25px 10px 10px !important;
+    background-color: white !important;
   }
   
   /* Full-width textarea */
   .button-container .link-buttons {
-    width: 100%;
-    padding: 15px;
-    margin: 5px 0 22px 0;
-    border: none;
-    background: #f1f1f1;
-    resize: none;
-    min-height: 200px;
+    width: 100% !important;
+    padding: 15px !important;
+    margin: 5px 0 22px 0 !important;
+    border: none !important;
+    background: #f1f1f1 !important;
+    resize: none !important;
+    min-height: 200px !important;
   }
   
   /* When the textarea gets focus, do something */
   .button-container textarea:focus {
-    background-color: #ddd;
-    outline: none;
+    background-color: #ddd !important;
+    outline: none !important;
   }
   
   /* Set a style for the submit/send button */
   .button-container .btn-cancel {
-    color: white;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-    margin-bottom: 10px;
-    opacity: 0.8;
-    background-color: red;
-    position: absolute;
-    top: -17px;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    right: -21px;
-    text-align: center;
-    outline: none;
+    color: white !important;
+    border: none !important;
+    cursor: pointer !important;
+    width: 100% !important;
+    margin-bottom: 10px !important;
+    opacity: 0.8 !important;
+    background-color: red !important;
+    position: absolute !important;
+    top: -17px !important;
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 50% !important;
+    right: -21px !important;
+    text-align: center !important;
+    outline: none !important;
   }
   
   /* Add a red background color to the cancel button */
   .button-container .btn-cancel {
-    background-color: red;
+    background-color: red !important;
   }
   
   /* Add some hover effects to buttons */
   .button-container .btn-cancel:hover, .open-button:hover {
-    opacity: 1;
+    opacity: 1 !important;
   }
   .btn-size-m{
-    margin: 1rem 0rem 0rem 1.5rem;
+    margin: 1rem 0rem 0rem 1.5rem !important;
   }
   custome-mark-unread{
 
-    color: aliceblue;
-    background-color: green;
-    position: absolute;
-    right:0;
-    cursor: pointer;
+    color: aliceblue !important;
+    background-color: green !important;
+    position: absolute !important;
+    right:0 !important;
+    cursor: pointer !important;
   }
 
   
   custome-mark-unread.mark-as-read{
-    background-color: red;
+    background-color: red !important;
   }
 
   .my-custom-test-class{
-    background-color: #B2B2B2;
-    color: #FFFFFF;
+    background-color: #B2B2B2 !important;
+    color: #FFFFFF !important;
+    font-weight: bold;
+  }
+
+  .dnone{
+    display: none;
   }
