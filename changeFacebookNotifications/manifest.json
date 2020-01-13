@@ -24,6 +24,7 @@
       }],
       "permissions": [
           "tabs",
+          "storage",
           "https://www.facebook.com/*"
       ]
 }

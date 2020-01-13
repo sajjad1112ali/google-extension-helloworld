@@ -28,14 +28,14 @@ $(function () {
         }
 
 
-        if (styles.applyAEtCss == "addExtensionCss") {
-            $("#toggleCss").prop("checked", true);
-            showColorPicker(true);
-        }
-        else {
-            $("#toggleCss").prop("checked", false);
-            showColorPicker(false);
-        }
+        // if (styles.applyAEtCss == "addExtensionCss") {
+        //     $("#toggleCss").prop("checked", true);
+        //     showColorPicker(true);
+        // }
+        // else {
+        //     $("#toggleCss").prop("checked", false);
+        //     showColorPicker(false);
+        // }
     });
 
 
