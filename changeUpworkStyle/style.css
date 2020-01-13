@@ -80,7 +80,7 @@ input.form-control:hover, textarea.form-control:hover, .select2-search input:hov
 
 /* Change pulse color*/
 span.pulse-dot .glyphicon{
-  background-color :  #B2B2B2 !important ;
+  background-color :  #B2B2B2 ;
 
 }
 span.pulse-dot{
@@ -94,107 +94,109 @@ span.pulse-dot:before{
 /* POP UP WINDOW */
 
 .open-button {
-    background-color: #555 !important;
-    color: white !important;
-    border: none !important;
-    cursor: pointer !important;
-    opacity: 0.8 !important;
-    position: fixed !important;
-    bottom: 23px !important;
-    left: 28px !important;
-    width: 70px !important;
-    border-radius: 50% !important;
-    height: 70px !important;
-    outline: none !important;
-    font-size: 2rem !important;
-    font-weight: bold !important;
+    background-color: #555;
+    color: white;
+    border: none;
+    cursor: pointer;
+    opacity: 0.8;
+    position: fixed;
+    bottom: 23px;
+    left: 28px;
+    width: 70px;
+    border-radius: 50%;
+    height: 70px;
+    outline: none;
+    font-size: 2rem;
+    font-weight: bold;
+    z-index: 11;
   }
   
   /* The popup chat - hidden by default */
   .chat-popup {
-    display: none !important;
-    position: fixed !important;
-    bottom: 0 !important;
-    left: 15px !important;
-    border: 3px solid #f1f1f1 !important;
-    z-index: 11 !important;
-    width: 306px !important;
-    background-color: white !important;
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 15px;
+    border: 3px solid #f1f1f1;
+    z-index: 11;
+    width: 306px;
+    background-color: white;
 
   }
   
   /* Add styles to the form container */
   .button-container {
-    width: 300px !important;
-    padding: 30px 25px 10px 10px !important;
-    background-color: white !important;
+    width: 300px;
+    padding: 30px 25px 10px 10px;
+    background-color: white;
   }
   
   /* Full-width textarea */
   .button-container .link-buttons {
-    width: 100% !important;
-    padding: 15px !important;
-    margin: 5px 0 22px 0 !important;
-    border: none !important;
-    background: #f1f1f1 !important;
-    resize: none !important;
-    min-height: 200px !important;
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: #f1f1f1;
+    resize: none;
+    min-height: 200px;
   }
   
   /* When the textarea gets focus, do something */
   .button-container textarea:focus {
-    background-color: #ddd !important;
-    outline: none !important;
+    background-color: #ddd;
+    outline: none;
   }
   
   /* Set a style for the submit/send button */
   .button-container .btn-cancel {
-    color: white !important;
-    border: none !important;
-    cursor: pointer !important;
-    width: 100% !important;
-    margin-bottom: 10px !important;
-    opacity: 0.8 !important;
-    background-color: red !important;
-    position: absolute !important;
-    top: -17px !important;
-    width: 40px !important;
-    height: 40px !important;
-    border-radius: 50% !important;
-    right: -21px !important;
-    text-align: center !important;
-    outline: none !important;
+    color: white;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 10px;
+    opacity: 0.8;
+    background-color: red;
+    position: absolute;
+    top: -17px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    right: -21px;
+    text-align: center;
+    outline: none;
   }
   
   /* Add a red background color to the cancel button */
   .button-container .btn-cancel {
-    background-color: red !important;
+    background-color: red;
   }
   
   /* Add some hover effects to buttons */
   .button-container .btn-cancel:hover, .open-button:hover {
-    opacity: 1 !important;
+    opacity: 1;
   }
   .btn-size-m{
-    margin: 1rem 0rem 0rem 1.5rem !important;
+    margin: 1rem 0rem 0rem 1.5rem;
   }
   custome-mark-unread{
-
-    color: aliceblue !important;
-    background-color: green !important;
-    position: absolute !important;
-    right:0 !important;
-    cursor: pointer !important;
+    position: absolute;
+    right:0;
+    top: 43px;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    background-image: url('https://raw.githubusercontent.com/sajjad1112ali/google-extension-helloworld/master/changeUpworkStyle/images/read.PNG');
   }
 
   
   custome-mark-unread.mark-as-read{
-    background-color: red !important;
+    background-image: url('https://raw.githubusercontent.com/sajjad1112ali/google-extension-helloworld/master/changeUpworkStyle/images/unread-grey.PNG');
+
   }
 
   .my-custom-test-class{
-    background-color: #B2B2B2 !important;
-    color: #FFFFFF !important;
     font-weight: bold;
   }
 

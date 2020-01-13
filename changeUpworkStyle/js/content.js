@@ -4,40 +4,40 @@ $(function(){
   var originalImagesSrc = [];
 
   changeImagesSrc();
-
-  
-
   
 var re = new RegExp("(http|https):\/\/www.upwork.com\/messages\/rooms\/.*");
 
   if(re.test(location.href))
   {
-  
     setTimeout(() => {
-      
+
+      alert("Going to add text");
+
+      $( ".pagination-prev, .pagination-next" ).click(setSavedRoomUnread);
+
       setSavedRoomUnread();
-    }, 90000);
+
+    }, 15000);
   }
 
   function setItemReadUnread() {
     
-    var currentRoomID = $(this).parent().parent().parent().parent().attr("data-roomid");
+    var clickedStarParent = $(this).parent();
+    var currentRoomID = clickedStarParent.parent().parent().attr("data-roomid");
     var dataMarkStatus = $(this).attr("data-mark-status");
-    console.log(dataMarkStatus);
-    //data-mark-status
+
+    var nameSpan = clickedStarParent.find('.room-list-name-span');
+
 
     if (dataMarkStatus == "mark-as-read") {
       // remove from from local storage
-      $(this).attr("data-mark-status", "mark-as-unread").text("Mark as unread").removeClass("mark-as-read");
-      $(this).parent().removeClass("my-custom-test-class");
-      //.find('.room-list-name-span').addClass("")
+      $(this).attr("data-mark-status", "mark-as-unread").removeClass("mark-as-read");
+      nameSpan.removeClass("my-custom-test-class");
     }
     else{
       // add to local storage
-      $(this).attr("data-mark-status", "mark-as-read").text("Mark as read").addClass("mark-as-read");
-      $(this).parent().addClass("my-custom-test-class");
-
-
+      $(this).attr("data-mark-status", "mark-as-read").addClass("mark-as-read");
+      nameSpan.addClass("my-custom-test-class");
     }
 
 
@@ -46,6 +46,7 @@ var re = new RegExp("(http|https):\/\/www.upwork.com\/messages\/rooms\/.*");
       if (typeof roomIds !== "undefined" && roomIds != null) {
 
         if (dataMarkStatus == "mark-as-read") {
+
           roomIds.splice(roomIds.indexOf(currentRoomID),1);
         } else {
           roomIds.push(currentRoomID);
@@ -53,7 +54,6 @@ var re = new RegExp("(http|https):\/\/www.upwork.com\/messages\/rooms\/.*");
       }
       else
       {
-
           roomIds = [currentRoomID];
       }
       // Saving roomIds to array
@@ -70,6 +70,10 @@ var re = new RegExp("(http|https):\/\/www.upwork.com\/messages\/rooms\/.*");
   // Getting saved room IDs
   function setSavedRoomUnread()
   {
+
+    setTimeout(() => {
+
+    
     var allRoomIDs = [];
 
         // Getting all rom ids from list
@@ -80,29 +84,28 @@ var re = new RegExp("(http|https):\/\/www.upwork.com\/messages\/rooms\/.*");
 
     chrome.storage.sync.get(["roomIds"], function(roomIdsObj){
       let savedRoomIds =  roomIdsObj.roomIds ? roomIdsObj.roomIds : [];
-
+      var roomList = ";"
       allRoomIDs.forEach(function (value, index) {
-
+        roomList =  $("ul.room-list").find(`[data-roomid='${value}']`).find('.room-list-item-div');
         if (savedRoomIds.includes(value)) {
           
-          console.log(`ID Found in our data ${index} = ${ value}`);
+         roomList.append("<custome-mark-unread class='mark-as-read' data-mark-status='mark-as-read'></custome-mark-unread>");
 
-          $("ul.room-list").find(`[data-roomid='${value}']`).find('.room-list-name-span').addClass("my-custom-test-class").append("<custome-mark-unread class='mark-as-read' data-mark-status='mark-as-read'>Mark as read</custome-mark-unread>");
-          }
+         roomList.find('.room-list-name-span').addClass("my-custom-test-class");
+        }
           else
           {
-            $("ul.room-list").find(`[data-roomid='${value}']`).find('.room-list-name-span').append("<custome-mark-unread  data-mark-status='mark-as-unread'>Mark as unread</custome-mark-unread>");
+            roomList.append("<custome-mark-unread  data-mark-status='mark-as-unread'></custome-mark-unread>");
           }
         }); // End For each
 
         $( "custome-mark-unread" ).click(setItemReadUnread);
   });
+
+}, 1000);  // End time intervel   
+
+
 }
-
-
-  //$(".input-group.input-group-search .input-group-btn>span.btn-primary, span.mentions, .badge-verified span, .badge-unverified span, .air-icon-verified, .nav-v2 .nav-right>li.active .nav-item, .nav-dropdown .active, .nav-v2 .nav-dot, .nav-v2 .nav-bubble, .blueberry-text, .opening-counts-value a, .nav-dot").addClass("extensionCss");
-
-
   chrome.storage.sync.get(["bg_color", "font_color", "applyAEtCss", "messages_bg_color", "messages_font_color"], function (styles) {
 
     if (styles.applyAEtCss == "addExtensionCss") {
@@ -110,10 +113,6 @@ var re = new RegExp("(http|https):\/\/www.upwork.com\/messages\/rooms\/.*");
       isAddExtensioChecked(request);
     }
 });
-
-
-
-
 
 
   chrome.runtime.onMessage.addListener(function(request, sender, sendResponse){
@@ -141,7 +140,6 @@ var re = new RegExp("(http|https):\/\/www.upwork.com\/messages\/rooms\/.*");
     }
     else
     {
-      console.log("IN ANOTHER CALL");
       // Check if extension Css checkd or not
       isAddExtensioChecked(request);
     }
@@ -174,11 +172,6 @@ var customLogo = ' <img src="https://raw.githubusercontent.com/sajjad1112ali/goo
     
     var SpreadsheetLink = '<a href="https://docs.google.com/spreadsheets/d/1Uya7gDW3uv_ua7AhFe8SlaCgzEkfV8huWfzjsRKTwUw/edit#gid=890010809" class="btn btn-primary  mt-1 custom-links-btn" role="button" target="_blank" aria-pressed="true">Spreadsheet</a>';
 
-
-
-
-
-
     var popUpWindow = '    <button class="open-button" id="openLinksWindowBtn">+</button>\
     <div class="chat-popup" id="buttonsWindow">\
       <div class="button-container">\
@@ -191,11 +184,11 @@ var customLogo = ' <img src="https://raw.githubusercontent.com/sajjad1112ali/goo
       </div>\
     </div>';
     
-    
-    if(location.href === "https://www.upwork.com/ab/c/2572761/home")
-    {
-      $("body").append(popUpWindow);
-    }
+    $("body").append(popUpWindow);  
+    // if(location.href === "https://www.upwork.com/ab/c/2572761/home")
+    // {
+      
+    // }
 
 
     $( "#openLinksWindowBtn" ).click(function() {
