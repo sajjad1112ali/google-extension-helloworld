@@ -1,0 +1,30 @@
+{
+    "manifest_version": 2,
+    "name": "Customize Shapr",
+    "version": "1.0",
+    "description": "Extension for adding custom functionality to shapr.",
+    "icons": {
+        "128": "./images/icon128.png",
+        "48": "./images/icon48.png",
+        "16": "./images/icon16.png"
+    }, 
+    "page_action": {
+        "default_action": "./images/icon16.png",
+        "default_popup": "popup.html",
+        "default_title": "Customize Shapr"
+    },
+    "background": {
+        "scripts": ["./js/eventPage.js"],
+        "persistent": false
+    },
+    "content_scripts": [{
+        "css": ["./style.css"],
+        "js": ["./js/jquery.js","./js/content.js"],
+        "matches": ["https://webapp.shapr.net/*"]
+      }],
+      "permissions": [
+          "tabs",
+          "storage",
+          "https://webapp.shapr.net/*"
+      ]
+}
