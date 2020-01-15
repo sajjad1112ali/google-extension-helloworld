@@ -84,7 +84,7 @@ var re = new RegExp("(http|https):\/\/www.upwork.com\/messages\/rooms\/.*");
 
     chrome.storage.sync.get(["roomIds"], function(roomIdsObj){
       let savedRoomIds =  roomIdsObj.roomIds ? roomIdsObj.roomIds : [];
-      var roomList = ";"
+      var roomList = "";
       allRoomIDs.forEach(function (value, index) {
         roomList =  $("ul.room-list").find(`[data-roomid='${value}']`).find('.room-list-item-div');
         if (savedRoomIds.includes(value)) {
