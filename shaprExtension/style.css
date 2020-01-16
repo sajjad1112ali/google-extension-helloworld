@@ -32,11 +32,12 @@ body{
   }  
 
 save-notes {
-    background-image: url('https://raw.githubusercontent.com/sajjad1112ali/google-extension-helloworld/master/changeUpworkStyle/images/unread.PNG');
+    background-image: url('https://ucfbda9c02e6e5feefd142a2cdd2.previews.dropboxusercontent.com/p/thumb/AAojtd3E1Eqo9pXX43Lk_SEfwwvHQbMS0oN6fbCgwHNkWugaUVPHtW2NrFn2GQCCUQpYFllFqUGhmSnd1HLTY1lw16bBKdO_GVM8-a-p9dpf0JJBJjs0K2I-6BLcW_T8aC0LWEh8WE7teDisk0KjUVVlbysB4wXMtgn1OCChc7TK8OvZ2LAFFoKaxLUk0nnnjT9-dWhouMLMfnhUv5o-12Si7YCaqFII0zS2jetotm5IUDNYUp-S32GddrcYkK2GyFGYvcHJjnHHtOZRqGMCKylR_FFwXxqAlNORBn9IJaweFUWUOsl8QlCp1dQR7wAbSIGVQaYRdX792mIGu9Ajm6_bCsU6Eqbk-AWB3k-IajgPeDk3V48gYZ6ogQpX_R1AAVor2vcQLDJGYdncRFPsQ7PT/p.png?size=1280x960&size_mode=3');
     right: -25px;
-
 } 
-
+save-notes.noteactive{
+  background-image: url('https://uc3f8cbc547af1cd5415c3db0b63.previews.dropboxusercontent.com/p/thumb/AAqH726OT-FNp408VIuBc6HWfc4oWmLpcGUzF0X4zI92QYOb_u0Gd812N9XMj6wo7fjiFgZcyoHtHw2mlmGFVLCJMFUBFI_ZEaABzSMjKfxAuQje8UlmyyT6pW6Ibwrfuv2ApKqC6CI_5hx5cGA05Wd8VwRXqYAw_Mep-VXZLmMjhBZPCsy1rh1S6Bq-m69P8mpcpGjai6Yyly4frT7uGYvFH1RWBOWMNyUJpAVu8lQE_USIOFkjm4gN9Xp2VL6igsO04LeIbR3-SqhNsm_nZG_q49nPjr6a1mhwLtkYrZFVuxMcri0ZND6m10dhxPB8nidbg39dsykWtMUaB4zreLVFyHJqvdOo89t-j-0aHDv7GelHxgu1U55-xKKB2dAEutfhWIK3pn2ZQ7H0wZbOZj97/p.png?size=1280x960&size_mode=3');
+}
 unread-tag{
     background-image: url('https://raw.githubusercontent.com/sajjad1112ali/google-extension-helloworld/master/changeUpworkStyle/images/read.PNG');
     right: 0px;
@@ -58,8 +59,8 @@ unread-tag{
   width: 100%; /* Full width */
   height: 100%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
-  background-color: red; /* Fallback color */
-  background-color: red; /* Black w/ opacity */
+  background-color: rgba(0, 0, 0, 0.5); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.5); /* Black w/ opacity */
 
 }
 
@@ -69,9 +70,14 @@ unread-tag{
   margin: 15% auto; /* 15% from the top and centered */
   padding: 20px;
   border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
+  width: 50%; /* Could be more or less, depending on screen size */
 }
-
+#userNotes{
+  width: 100%;
+}
+.mt{
+  margin-top: 10px;
+}
 /* The Close Button */
 .close {
   color: #aaa;
