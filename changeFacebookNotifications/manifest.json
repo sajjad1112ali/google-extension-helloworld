@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "Change Facebook Notification Style",
-    "version": "1.1",
+    "version": "1.4",
     "description": "Extension for changing the notification of facebook.",
     "icons": {
         "128": "./images/icon128.png",
@@ -19,6 +19,7 @@
     },
     "content_scripts": [{
         "css": ["./style.css"],
+        "run_at": "document_end",
         "js": ["./js/jquery.js","./js/content.js"],
         "matches": ["https://www.facebook.com/*"]
       }],

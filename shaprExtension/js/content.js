@@ -17,11 +17,8 @@ $(function () {
 
   </div>`;
 
-
-
-
   setTimeout(() => {
-    console.log("Calling function");
+    alert("Going to add custom buttons");
     setReadUnreadIndicator();
 
     $("body").append(modalPopUp);
@@ -31,22 +28,16 @@ $(function () {
     
     $("#saveNotesBtn").click(saveNotes);
 
-
-    // Get the button that opens the modal
     $("save-notes").click(function() {
       modal.style.display = "block";
     });
     
-    // Get the <span> element that closes the modal
     var span = document.getElementById("closeModal");
-    
-    
-    // When the user clicks on <span> (x), close the modal
+
     span.onclick = function() {
       modal.style.display = "none";
     }
     
-    // When the user clicks anywhere outside of the modal, close it
     window.onclick = function(event) {
       if (event.target == modal) {
         modal.style.display = "none";
@@ -54,9 +45,6 @@ $(function () {
     }
 $("#userNotes").val("");
   }, 5000); // END SetTimeOut
-
-
-
 }); // End JQuery
 
 // Setting read unread messages indicator symbol on page load
@@ -80,21 +68,23 @@ function setReadUnreadIndicator() {
       domUserIds.forEach(function (value, index) {
         uNameDiv = $(`h4.user-name[title="${value}"]`);
 
+        var is_id_exist = SavedIds.indexOf(value);
+        var notes = "";
 
-
-        var index = SavedIds.indexOf(value);
-        var notes = index > -1 ? SavedNotes[index] : "";
-        var is_saved_notes_class = index > -1 ? "noteactive" : "";
-
-        
+        if (is_id_exist > -1) {
+          notes = $.trim(SavedNotes[is_id_exist]) != "" ? SavedNotes[is_id_exist] : "";
+        }
+        var is_saved_notes_class = notes != "" ? "noteactive" : "";
 
         if (savedUserIds.includes(value)) {
 
-          $(uNameDiv).append(`<unread-tag class='custom-markup marked' data-mark-as='unread' data-userId='${value}'></unread-tag><save-notes data-notesUserId='${value}' class='custom-markup ${is_saved_notes_class}' data-notes='${notes}'></save-notes>`);
+          $(uNameDiv).append(`<unread-tag class='custom-markup marked' data-mark-as='unread' data-userId='${value}'></unread-tag>`);
         }
         else {
-          $(uNameDiv).append(`<unread-tag class='custom-markup' data-mark-as='read' data-userId='${value}'></unread-tag><save-notes data-notesUserId='${value}' class='custom-markup ${is_saved_notes_class}' data-notes='${notes}></save-notes>`);
+          $(uNameDiv).append(`<unread-tag class='custom-markup' data-mark-as='read' data-userId='${value}'></unread-tag>`);
         }
+        $(uNameDiv).append(`<save-notes data-notesUserId='${value}' class='custom-markup ${is_saved_notes_class}' data-notes='${notes}'></save-notes>`);
+
       }); // End For each
       $("unread-tag").click(addRemoveUser);
       $("save-notes").click(getUserIDForNote);
@@ -108,8 +98,6 @@ function setReadUnreadIndicator() {
      modal.style.display = "block";
    });
 
-
-    
     });
 
   }, 0);  // End time intervel   
@@ -162,14 +150,20 @@ function getUserIDForNote(){
   } // END getUserIDForNote
 
 function saveNotes(){
-  var userNotes = $("#userNotes").val();
-
-  if ($.trim(userNotes) == "") {
-    alert("Kindly enter your notes for processing.");
-    return;
+  var userNotes = $.trim($("#userNotes").val());
+  var notesTag = $(`save-notes[data-notesuserid="${userIdForNote}"]`);
+  
+  if (userNotes == "") {
+    if(!confirm("Do you want to add an empty note?")){
+      return;
+    }
+    notesTag.removeClass("noteactive");
+  }
+  else{
+    notesTag.addClass("noteactive")
   }
 
-  $(`save-notes[data-notesuserid="${userIdForNote}"]`).attr("data-notes", userNotes);
+  notesTag.attr("data-notes", userNotes);
   
  
   $("#myModal").css("display", "none");
@@ -177,24 +171,17 @@ function saveNotes(){
   chrome.storage.sync.get(['usersSavedNotes', 'usersIdsForSavedNotes'], function (usersSavedNotesObj) {
     var usersSavedNotes = usersSavedNotesObj.usersSavedNotes;
     var usersIdsForSavedNotes = usersSavedNotesObj.usersIdsForSavedNotes;
-    console.log("_-----------------");
-    console.log(usersSavedNotes);
-    console.log("_-----------------");
-    console.log(usersIdsForSavedNotes);
 
     if (typeof usersSavedNotes !== "undefined" && usersSavedNotes != null) {
       var index = usersIdsForSavedNotes.indexOf(userIdForNote);
       if (index > -1) {
-        console.log("User aready exist");
         usersSavedNotes[index] = userNotes;
       } else {
-        console.log("Not FOUND");
         usersSavedNotes.push(userNotes);
         usersIdsForSavedNotes.push(userIdForNote);
       }
     }
     else {
-      console.log("ADDING NEW RECORD....");
       usersSavedNotes = [userNotes];
       usersIdsForSavedNotes = [userIdForNote];
     }

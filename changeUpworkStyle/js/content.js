@@ -5,6 +5,9 @@ $(function(){
 
   changeImagesSrc();
   
+  
+  $("link[rel='icon']").attr("href", "https://img.icons8.com/cute-clipart/2x/edit.png");
+  
 var re = new RegExp("(http|https):\/\/www.upwork.com\/messages\/rooms\/.*");
 
   if(re.test(location.href))
@@ -16,6 +19,7 @@ var re = new RegExp("(http|https):\/\/www.upwork.com\/messages\/rooms\/.*");
       $( ".pagination-prev, .pagination-next" ).click(setSavedRoomUnread);
 
       setSavedRoomUnread();
+
 
     }, 15000);
   }
@@ -84,7 +88,7 @@ var re = new RegExp("(http|https):\/\/www.upwork.com\/messages\/rooms\/.*");
 
     chrome.storage.sync.get(["roomIds"], function(roomIdsObj){
       let savedRoomIds =  roomIdsObj.roomIds ? roomIdsObj.roomIds : [];
-      var roomList = "";
+      var roomList = ";"
       allRoomIDs.forEach(function (value, index) {
         roomList =  $("ul.room-list").find(`[data-roomid='${value}']`).find('.room-list-item-div');
         if (savedRoomIds.includes(value)) {
@@ -170,12 +174,22 @@ var customLogo = ' <img src="https://raw.githubusercontent.com/sajjad1112ali/goo
     var FormLink = '<a href="https://docs.google.com/forms/d/e/1FAIpQLSem00EW9OXfTv9y310KIfiWeBgt3d7-ws5Gr-9EIJ4F_-G7kQ/viewform" class="btn btn-primary mt-1 custom-links-btn" role="button" target="_blank" aria-pressed="true">Form</a>';
     
     
-    var SpreadsheetLink = '<a href="https://docs.google.com/spreadsheets/d/1Uya7gDW3uv_ua7AhFe8SlaCgzEkfV8huWfzjsRKTwUw/edit#gid=890010809" class="btn btn-primary  mt-1 custom-links-btn" role="button" target="_blank" aria-pressed="true">Spreadsheet</a>';
+    var SpreadsheetLink = '<a href="https://docs.google.com/spreadsheets/d/1Uya7gDW3uv_ua7AhFe8SlaCgzEkfV8huWfzjsRKTwUw/edit#gid=890010809&range=C582" class="btn btn-primary  mt-1 custom-links-btn" role="button" target="_blank" aria-pressed="true">Spreadsheet</a>';
+
+    
+    var JobsLink = '<a href="https://www.upwork.com/ab/c/2572761/home" class="btn btn-primary  mt-1 custom-links-btn" role="button" target="_blank" aria-pressed="true">My Jobs</a>';
+
+    
+    
+    var MessagesLink = '<a href="https://www.upwork.com/messages" class="btn btn-primary  mt-1 custom-links-btn" role="button" target="_blank" aria-pressed="true">Messages</a>';
+
 
     var popUpWindow = '    <button class="open-button" id="openLinksWindowBtn">+</button>\
     <div class="chat-popup" id="buttonsWindow">\
       <div class="button-container">\
         <div class="link-buttons">\
+        '+MessagesLink+'\
+        '+JobsLink+'\
         '+ContractsLink+'<br>\
         '+FormLink+'<br>\
         '+SpreadsheetLink+'\

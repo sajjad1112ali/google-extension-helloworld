@@ -182,7 +182,7 @@ span.pulse-dot:before{
   custome-mark-unread{
     position: absolute;
     right:0;
-    top: 43px;
+    top: 0px;
     cursor: pointer;
     width: 20px;
     height: 20px;

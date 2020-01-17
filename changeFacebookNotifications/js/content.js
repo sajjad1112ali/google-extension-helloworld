@@ -1,6 +1,14 @@
 $(function(){
   chrome.runtime.sendMessage({todo: "showPageAction"});
 
+  setTimeout(() => {
+    
+    var title = $("title").text().replace(/ *\([^)]*\) */g, "");
+    $("title").text(title);
+    console.log("--------------");
+  }, 30000);
+
+
   chrome.storage.sync.get(["bg_color", "font_color", "m_bg_color", "m_font_color", "frequest_bg_color", "frequest_font_color"], function (styles) {
      
     // Notifications Color Pickers
