@@ -1,13 +1,8 @@
 $(function () {
   chrome.runtime.sendMessage({ todo: "showPageAction" });
 
-
-  var modalPopUp = `<!-- Trigger/Open The Modal -->
-
-  <!-- The Modal -->
+  var modalPopUp = `
   <div id="myModal" class="modal">
-
-    <!-- Modal content -->
     <div class="modal-content">
       <span class="close" id="closeModal">&times;</span>
       <p>Add your notes</p>
@@ -47,8 +42,13 @@ $("#userNotes").val("");
   }, 5000); // END SetTimeOut
 }); // End JQuery
 
+
+var windowLocation = location.href;
+console.log(windowLocation )
+
 // Setting read unread messages indicator symbol on page load
 function setReadUnreadIndicator() {
+  console.log($(this));
   setTimeout(() => {
     var domUserIds = [];
     var userId = "";
@@ -66,7 +66,8 @@ function setReadUnreadIndicator() {
       let SavedIds = userIdsObj.usersIdsForSavedNotes ? userIdsObj.usersIdsForSavedNotes : [];
       var uNameDiv = ""
       domUserIds.forEach(function (value, index) {
-        uNameDiv = $(`h4.user-name[title="${value}"]`);
+        uNameDiv = $(`h4.user-name[title="${value}"]`).closest("li");
+        uNameDiv.find('a:first').addClass("userLiTags");
 
         var is_id_exist = SavedIds.indexOf(value);
         var notes = "";
@@ -89,6 +90,11 @@ function setReadUnreadIndicator() {
       $("unread-tag").click(addRemoveUser);
       $("save-notes").click(getUserIDForNote);
 
+      if (location.href == "https://webapp.shapr.net/") {
+      $(".userLiTags").click(setReadUnreadIndicator);
+        
+      }
+
 
    // Get the modal
    var modal = document.getElementById("myModal");
@@ -100,10 +106,11 @@ function setReadUnreadIndicator() {
 
     });
 
-  }, 0);  // End time intervel   
+  }, 5000);  // End time intervel   
 
 
 } // END setReadUnreadIndicator
+
 
 // Star clicked
 function addRemoveUser() {
@@ -138,6 +145,7 @@ function addRemoveUser() {
       console.log("userIds Saved to local storage");
     });// End saving userIds 
   }); // getting saved userIds 
+
 
 }  // End addRemoveUser
 var userIdForNote ="";
@@ -188,9 +196,15 @@ function saveNotes(){
 
     // Saving usersSavedNotes array in storage
     chrome.storage.sync.set({ "usersSavedNotes": usersSavedNotes,  "usersIdsForSavedNotes": usersIdsForSavedNotes }, function () {
-      console.log("usersSavedNotes Saved to local storage");
+      console.log("User Notes Saved to local storage");
     });// End saving userIds 
 
   }); // getting saved Notest 
+}
 
+function pageChange(){
+  
+  setTimeout(() => {
+    setReadUnreadIndicator();
+  }, 10000);
 }

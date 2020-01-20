@@ -25,18 +25,18 @@ body{
 .custom-markup{
     position: absolute;
     top: 43px;
+    right: 50px;
     cursor: pointer;
     width: 20px;
     height: 20px;
     text-align: center;
-  }  
-
-save-notes {
-    background-image: url('https://uc9e2d84880bd7dfee8b8c6cdbbf.previews.dropboxusercontent.com/p/thumb/AArC4CYPzGf5zOJebIXC2oXtLlsV9dxkgr7x1quX_au4VgLoKj5LWCTsz9xNfOwa9z63MtdGHlG3JlQtnxaX9N-ZV_rHTXaQz0NogDsk3fxIdEYbyYqyA2RrE6o7JlqFxDkdqYmh7qPfE3rX7_R3MbqmjsRsXsmC0wDNXI80tr9gJBiFb_Kwpzv9UQPsEFDX4NyhBCATgWwCfdA3qt5hGKd-w7BybfitexsB9Zx7zv_IW2Efm5FHHR8n3Ngn2P5ACmmbKIIE6jEcevccUPf1P5kqEpT75D2FqP2KPP2tUl2bct4TSAmY_73q1jVuCQ2BvwUWxG91bvkwsxYrHqLBNVHKcxrui5JIEs-mSUr7_Qavi9q3Lg6tqgGhAHr5ubpteUAhQmm_2YA9-SK0I8aZJKvh/p.png?size=1280x960&size_mode=3');
-    right: -25px;
+  }
+save-notes.custom-markup {
+    background-image: url('https://raw.githubusercontent.com/sajjad1112ali/google-extension-helloworld/master/changeUpworkStyle/images/notes.PNG');
+    right: 22px;
 } 
 save-notes.noteactive{
-  background-image: url('https://uc3f8cbc547af1cd5415c3db0b63.previews.dropboxusercontent.com/p/thumb/AAqH726OT-FNp408VIuBc6HWfc4oWmLpcGUzF0X4zI92QYOb_u0Gd812N9XMj6wo7fjiFgZcyoHtHw2mlmGFVLCJMFUBFI_ZEaABzSMjKfxAuQje8UlmyyT6pW6Ibwrfuv2ApKqC6CI_5hx5cGA05Wd8VwRXqYAw_Mep-VXZLmMjhBZPCsy1rh1S6Bq-m69P8mpcpGjai6Yyly4frT7uGYvFH1RWBOWMNyUJpAVu8lQE_USIOFkjm4gN9Xp2VL6igsO04LeIbR3-SqhNsm_nZG_q49nPjr6a1mhwLtkYrZFVuxMcri0ZND6m10dhxPB8nidbg39dsykWtMUaB4zreLVFyHJqvdOo89t-j-0aHDv7GelHxgu1U55-xKKB2dAEutfhWIK3pn2ZQ7H0wZbOZj97/p.png?size=1280x960&size_mode=3');
+  background-image: url('https://raw.githubusercontent.com/sajjad1112ali/google-extension-helloworld/master/changeUpworkStyle/images/notesactive.PNG');
 }
 unread-tag{
     background-image: url('https://raw.githubusercontent.com/sajjad1112ali/google-extension-helloworld/master/changeUpworkStyle/images/read.PNG');

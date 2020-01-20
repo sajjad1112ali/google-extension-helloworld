@@ -7,3 +7,19 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse){
     }
 });
 
+// chrome.tabs.onActiveChanged.addListener(function(activeInfo) {
+
+//   });
+
+//   chrome.tabs.onActivated.addListener( function(info) {
+//     var tabId    = info.tabId,
+//         windowId = info.windowId;
+//         console.log("URL CHANGES 1 ");
+//         console.log(activeInfo);
+// });
+// chrome.tabs.onActiveChanged.addListener( function(tabId, info) {
+//     tabId        = tabId;         // For comparison
+//     var windowId = info.windowId;
+//     console.log("URL CHANGES 2 ");
+//     console.log(activeInfo);
+// });
