@@ -1,0 +1,6 @@
+div.private-button--transparent,
+div.private-button--transparent:hover,
+button.private-button--transparent,
+button.private-button--transparent:hover{
+    color: gray;
+}

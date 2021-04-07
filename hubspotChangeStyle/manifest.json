@@ -1,0 +1,41 @@
+{
+    "manifest_version": 2,
+    "name": "Change Hubspot Style",
+    "version": "1.4",
+    "description": "Extension for changing the style of hubspot.",
+    "icons": {
+        "128": "./images/icon128.png",
+        "48": "./images/icon48.png",
+        "16": "./images/icon16.png"
+    },
+    "page_action": {
+        "default_action": "./images/icon16.png",
+        "default_popup": "popup.html",
+        "default_title": "Change Hubspot Style"
+    },
+    "background": {
+        "scripts": [
+            "./js/eventPage.js"
+        ],
+        "persistent": false
+    },
+    "content_scripts": [
+        {
+            "css": [
+                "./style.css"
+            ],
+            "run_at": "document_end",
+            "js": [
+                "./js/jquery.js",
+                "./js/content.js"
+            ],
+            "matches": [
+                "https://app.hubspot.com/contacts/*"
+            ]
+        }
+    ],
+    "permissions": [
+        "tabs",
+        "https://app.hubspot.com/contacts/*"
+    ]
+}
