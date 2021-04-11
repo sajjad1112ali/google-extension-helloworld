@@ -4,3 +4,131 @@ button.private-button--transparent,
 button.private-button--transparent:hover{
     color: gray;
 }
+
+/* SPAN Message*/
+ 
+.d-none{
+    display: none;
+}
+.text-red{
+    color: red;
+}
+/* Extension POpUp Window*/
+.popupwin{
+  padding: 20px 10px;
+  margin: 0 !important;
+  font-family: 'Open Sans', sans-serif !important;
+  min-width: 250px !important;
+  min-height: 100px !important;
+  
+  }
+  .text-center{
+    text-align: center;
+  }
+  input[type='text']{
+    width: 96%;
+  }
+  .p-2{
+    padding: 0rem .5rem !important;
+  }
+
+/*Buttons POP UP WINDOW */
+
+.open-button {
+    background-color: #555;
+    color: white;
+    border: none;
+    cursor: pointer;
+    opacity: 0.8;
+    position: fixed;
+    bottom: 23px;
+    left: 28px;
+    width: 70px;
+    border-radius: 50%;
+    height: 70px;
+    outline: none;
+    font-size: 2rem;
+    font-weight: bold;
+    z-index: 11;
+  }
+  
+  /* The popup chat - hidden by default */
+  .chat-popup {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 15px;
+    border: 3px solid #f1f1f1;
+    z-index: 11;
+    width: 306px;
+    background-color: white;
+
+  }
+  
+  /* Add styles to the form container */
+  .button-container {
+    width: 300px;
+    padding: 30px 25px 10px 10px;
+    background-color: white;
+  }
+  
+  /* Full-width textarea */
+  .button-container .link-buttons {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: #f1f1f1;
+    resize: none;
+    min-height: 200px;
+  }
+  
+  /* Full-width textarea 
+  .button-container a.custom-links-btn {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: #970808;
+  }
+  */
+  /* When the textarea gets focus, do something */
+  .button-container textarea:focus {
+    background-color: #ddd;
+    outline: none;
+  }
+  
+  .btn-margin-top{
+      margin-top: 10px;
+  }
+  /* Set a style for the submit/send button */
+  .button-container .btn-cancel {
+    color: white;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 10px;
+    opacity: 0.8;
+    background-color: red;
+    position: absolute;
+    top: -17px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    right: -21px;
+    text-align: center;
+    outline: none;
+  }
+  
+  /* Add a red background color to the cancel button */
+  .button-container .btn-cancel {
+    background-color: red;
+  }
+  
+  /* Add some hover effects to buttons */
+  .button-container .btn-cancel:hover, .open-button:hover {
+    opacity: 1;
+  }
+  .btn-size-m{
+    margin: 1rem 0rem 0rem 1.5rem;
+  }

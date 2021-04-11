@@ -12,9 +12,20 @@
     <script src="./js/popup.js"></script>
 </head>
 
-<body>
+<body class="popupwin">
+    <div class="dnone">
 
-    <h3>HubSpot Extension</h3>
+        <div>
+            <p>Add your hubspot Unique Id</p>
+            <input type="text" id="userID">
+            <p class="text-red" id="error-message">Kindly provied Unique ID</p>
+        </div>
+
+        <br>
+        <div class="text-center">
+            <button id="saveId">Save</button>
+        </div>
+    </div>
 </body>
 
 </html>

@@ -30,12 +30,13 @@
                 "./js/content.js"
             ],
             "matches": [
-                "https://app.hubspot.com/contacts/*"
+                "https://app.hubspot.com/*"
             ]
         }
     ],
     "permissions": [
         "tabs",
-        "https://app.hubspot.com/contacts/*"
+        "storage",
+        "https://app.hubspot.com/*"
     ]
 }
