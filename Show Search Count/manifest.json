@@ -1,0 +1,29 @@
+{
+  "manifest_version": 2,
+  "name": "Show Search Count",
+  "version": "1.0",
+  "description": "Extension for showing count from upwork search reasult.",
+  "icons": {
+    "128": "./images/icon128.png",
+    "48": "./images/icon48.png",
+    "16": "./images/icon16.png"
+  },
+  "page_action": {
+    "default_action": "./images/icon16.png",
+    "default_popup": "popup.html",
+    "default_title": "Showing count from upwork search reasult"
+  },
+  "background": {
+    "scripts": ["./js/eventPage.js"],
+    "persistent": false
+  },
+  "content_scripts": [
+    {
+      "css": ["./style.css"],
+      "run_at": "document_end",
+      "js": ["./js/jquery.js", "./js/content.js"],
+      "matches": ["https://www.upwork.com/*"]
+    }
+  ],
+  "permissions": ["https://www.upwork.com/*"]
+}

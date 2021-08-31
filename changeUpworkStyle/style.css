@@ -1,205 +1,200 @@
-
-.popupwin{
+.popupwin {
   padding: 10px 0px 10px 0px !important;
   margin: 0 !important;
-  font-family: 'Open Sans', sans-serif !important;
+  font-family: "Open Sans", sans-serif !important;
 
   min-width: 250px !important;
   min-height: 100px !important;
-
 }
-.p-2{
-  padding: 0rem .5rem !important;
+.p-2 {
+  padding: 0rem 0.5rem !important;
 }
 .p-2 span {
   margin: 8px 0px !important;
   display: block !important;
 }
 
-.badge-verified span, .badge-unverified span,
+.badge-verified span,
+.badge-unverified span,
 .air-icon-verified:before {
-    color: #B2B2B2 !important;
+  color: #b2b2b2 !important;
 }
 
 .nav-v2 .nav-right>li.active .nav-item, /* Change Active nav color  */ 
-.nav-dropdown .active
-{
-   color: #afafaf !important;
+.nav-dropdown .active {
+  color: #afafaf !important;
 }
 
-.input-group.input-group-search .input-group-btn>span.btn-primary /* CHANGE search box right button*/
-{
-    background-color: #B2B2B2 !important;
-} 
+.input-group.input-group-search .input-group-btn>span.btn-primary /* CHANGE search box right button*/ {
+  background-color: #4a1ce2 !important;
+}
 
 span.mentions {
-  background-color: #FFFFFF !important;
+  background-color: #cc2020 !important;
   font-weight: bold !important;
   font-size: 13px !important;
-  color: #888888 !important;
+  color: #aa1c1c !important;
 }
 
 .nav-v2 .nav-dot, /* Change the dot color */
-.nav-dot
-{
-    background-color: #afafaf !important;
+.nav-dot {
+  background-color: #afafaf !important;
+}
 
+.nav-v2 .nav-bubble /* Change Message number color*/ {
+  background-color: transparent !important;
+  color: #353c35 !important;
+  font-size: 15px !important;
 }
- 
-
-.nav-v2 .nav-bubble /* Change Message number color*/
-{
-    background-color: transparent !important;
-    color: #656565 !important;
-    font-size: 15px !important;
+.nav-v2 .nav-bubble:before {
+  border-left: 0px solid transparent !important;
 }
-.nav-v2 .nav-bubble:before
-{
-    border-left: 0px solid transparent !important;
-}
-.ColorPickerhidden{
+.ColorPickerhidden {
   visibility: hidden !important;
 }
 
-
-input.form-control:hover, textarea.form-control:hover, .select2-search input:hover, input.form-control:focus, textarea.form-control:focus, .select2-search input:focus
-
-{
-    border-color: #B2B2B2 !important;
+input.form-control:hover,
+textarea.form-control:hover,
+.select2-search input:hover,
+input.form-control:focus,
+textarea.form-control:focus,
+.select2-search input:focus {
+  border-color: #b2b2b2 !important;
 }
 
 .blueberry-text,
-.opening-counts-value a{
-    border-color: black  !important;
+.opening-counts-value a {
+  border-color: rgb(0, 0, 0) !important;
 }
-.anchorCustomBtn{
-    position: fixed !important;
-    left: 20px !important; 
-    bottom: 0 !important;
+.anchorCustomBtn {
+  position: fixed !important;
+  left: 20px !important;
+  bottom: 0 !important;
 }
 
 /* Change pulse color*/
-span.pulse-dot .glyphicon{
-  background-color :  #B2B2B2 ;
-
+span.pulse-dot .glyphicon {
+  background-color: #b2b2b2;
 }
-span.pulse-dot{
-  background-color :  #B2B2B2 !important ;
-  border: 2px solid #B2B2B2 !important ;
+span.pulse-dot {
+  background-color: #b2b2b2 !important ;
+  border: 2px solid #b2b2b2 !important ;
 }
-span.pulse-dot:before{
-  background-color :  #B2B2B2 !important ;
+span.pulse-dot:before {
+  background-color: #b2b2b2 !important ;
 }
 
 /* POP UP WINDOW */
 
 .open-button {
-    background-color: #555;
-    color: white;
-    border: none;
-    cursor: pointer;
-    opacity: 0.8;
-    position: fixed;
-    bottom: 23px;
-    left: 28px;
-    width: 70px;
-    border-radius: 50%;
-    height: 70px;
-    outline: none;
-    font-size: 2rem;
-    font-weight: bold;
-    z-index: 11;
-  }
-  
-  /* The popup chat - hidden by default */
-  .chat-popup {
-    display: none;
-    position: fixed;
-    bottom: 0;
-    left: 15px;
-    border: 3px solid #f1f1f1;
-    z-index: 11;
-    width: 306px;
-    background-color: white;
+  background-color: #555;
+  color: white;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position: fixed;
+  bottom: 23px;
+  left: 28px;
+  width: 70px;
+  border-radius: 50%;
+  height: 70px;
+  outline: none;
+  font-size: 2rem;
+  font-weight: bold;
+  z-index: 11;
+}
 
-  }
-  
-  /* Add styles to the form container */
-  .button-container {
-    width: 300px;
-    padding: 30px 25px 10px 10px;
-    background-color: white;
-  }
-  
-  /* Full-width textarea */
-  .button-container .link-buttons {
-    width: 100%;
-    padding: 15px;
-    margin: 5px 0 22px 0;
-    border: none;
-    background: #f1f1f1;
-    resize: none;
-    min-height: 200px;
-  }
-  
-  /* When the textarea gets focus, do something */
-  .button-container textarea:focus {
-    background-color: #ddd;
-    outline: none;
-  }
-  
-  /* Set a style for the submit/send button */
-  .button-container .btn-cancel {
-    color: white;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-    margin-bottom: 10px;
-    opacity: 0.8;
-    background-color: red;
-    position: absolute;
-    top: -17px;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    right: -21px;
-    text-align: center;
-    outline: none;
-  }
-  
-  /* Add a red background color to the cancel button */
-  .button-container .btn-cancel {
-    background-color: red;
-  }
-  
-  /* Add some hover effects to buttons */
-  .button-container .btn-cancel:hover, .open-button:hover {
-    opacity: 1;
-  }
-  .btn-size-m{
-    margin: 1rem 0rem 0rem 1.5rem;
-  }
-  custome-mark-unread{
-    position: absolute;
-    right:0;
-    top: 0px;
-    cursor: pointer;
-    width: 20px;
-    height: 20px;
-    text-align: center;
-    background-image: url('https://raw.githubusercontent.com/sajjad1112ali/google-extension-helloworld/master/changeUpworkStyle/images/read.PNG');
-  }
+/* The popup chat - hidden by default */
+.chat-popup {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 15px;
+  border: 3px solid #f1f1f1;
+  z-index: 11;
+  width: 306px;
+  background-color: white;
+}
 
-  
-  custome-mark-unread.mark-as-read{
-    background-image: url('https://raw.githubusercontent.com/sajjad1112ali/google-extension-helloworld/master/changeUpworkStyle/images/unread-grey.PNG');
+/* Add styles to the form container */
+.button-container {
+  width: 300px;
+  padding: 30px 25px 10px 10px;
+  background-color: white;
+}
 
-  }
+/* Full-width textarea */
+.button-container .link-buttons {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+  resize: none;
+  min-height: 200px;
+}
 
-  .my-custom-test-class{
-    font-weight: bold;
-  }
+.link-buttons a {
+  margin: 5px 0px;
+}
 
-  .dnone{
-    display: none;
-  }
+/* When the textarea gets focus, do something */
+.button-container textarea:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit/send button */
+.button-container .btn-cancel {
+  color: white;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom: 10px;
+  opacity: 0.8;
+  background-color: red;
+  position: absolute;
+  top: -17px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  right: -21px;
+  text-align: center;
+  outline: none;
+}
+
+/* Add a red background color to the cancel button */
+.button-container .btn-cancel {
+  background-color: red;
+}
+
+/* Add some hover effects to buttons */
+.button-container .btn-cancel:hover,
+.open-button:hover {
+  opacity: 1;
+}
+.btn-size-m {
+  margin: 1rem 0rem 0rem 1.5rem;
+}
+custome-mark-unread {
+  position: absolute;
+  right: 0;
+  top: 0px;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  background-image: url("https://raw.githubusercontent.com/sajjad1112ali/google-extension-helloworld/master/changeUpworkStyle/images/read.PNG");
+}
+
+custome-mark-unread.mark-as-read {
+  background-image: url("https://raw.githubusercontent.com/sajjad1112ali/google-extension-helloworld/master/changeUpworkStyle/images/unread-grey.PNG");
+}
+
+.my-custom-test-class {
+  font-weight: bold;
+}
+
+.dnone {
+  display: none;
+}
